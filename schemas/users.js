@@ -1,47 +1,44 @@
 const { db } = require("../config/sql_connection");
 const { DataTypes } = require("sequelize");
-const regex = require("../utils/regex");
 
 const Users = db.define(
-  "Users",
+  "users",
   {
     user_id: {
       field: "id",
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       field: "email",
       type: DataTypes.STRING(40),
       allowNull: false,
-      unique: true
-    },
-
-    password: {
-        field: "password",
-        type: DataTypes.STRING(100),
-        allowNull: false,
-        unique: true,
-        validate: {
-            validatePassword: function(password) {
-                          if(!(/^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/.test(password))) {
-                              throw new Error('The password must contain at least 6 including at least 1 uppercase, 1 lowercase adn one number');
-                          }
-                      }
-                  },
-    },          
-      admin: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+      unique: true,
+      validate: {
+        is: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
       }
+    },
+    //Checks that a password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces.
+    password: {
+      field: "password",
+      type: DataTypes.STRING(100),
+      allowNull: false,
+      validate: {
+        is: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/,
+      }
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     db,
     modelName: "Users",
     tableName: "users",
-    timestamps: false
+    timestamps: false,
   }
 );
 
