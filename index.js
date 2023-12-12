@@ -7,6 +7,9 @@ require('./schemas/sql_association')
 
 const port = process.env.PORT || 3000;
 
+//middlewares
+
+const morgan = require('./middlewares/morgan');
 
 const app = express();
 app.use(express.json())
@@ -18,16 +21,13 @@ db.sync().then(() => {
 //routes
 
 const usersAPIroutes = require("./routes/users.routes");
+const restaurantAPIroutes = require("./routes/restaurants.routes")
 
 
-app.use('/api/', usersAPIroutes);
+app.use('/api', usersAPIroutes);
+app.use('/api', restaurantAPIroutes);
 
 
-
-
-//middlewares
-
-const morgan = require('./middlewares/morgan');
 
 app.get('/', function (req, res) {
   res.send('Hello World!');

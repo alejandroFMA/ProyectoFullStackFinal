@@ -1,9 +1,11 @@
 const User = require('../schemas/sql_users');
+const Reservation = require('../schemas/sql_reservations')
+const Comment =require('../schemas/sql_reservations')
 
 const getUser = async (userId) => {
     try{
         const user = await User.findByPk(userId);
-        return user || 'Restaurante no encontrado';
+        return user || 'Usuario no encontrado';
     } catch (error) {
         throw error;
     }
@@ -25,7 +27,7 @@ const getUserByEmail = async (email) => {
 
 const getAllUsers = async () => {
     try {
-        return await User.findAll(); // Devuelve todos los usuarios
+        return await User.findAll(); 
     } catch (error) {
         throw error;
     }
@@ -58,8 +60,16 @@ const updateUser = async (userId, updateData) => {
 
 const deleteUser = async (userId) => {
     try {
-        const user = await User.destroy();
-        return user;
+        await Comment.destroy({ where: { id_user: userId } });
+        await Reservation.destroy({ where: { id_user: userId } });
+        //se borran todas las filas dependientes de esta tabla
+        const rows = await User.destroy({ where: { id_users: userId } }); 
+
+        if (rows === 0) {
+            throw new Error('Usuario no encontrado');
+        }
+
+        return { message: 'Usuario borrado', userId: userId };
     } catch (error) {
         throw error;
     }

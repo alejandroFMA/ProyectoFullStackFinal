@@ -1,4 +1,6 @@
 const Restaurant = require('../schemas/sql_restaurants');
+const Reservation = require('../schemas/sql_reservations')
+const Comment =require('../schemas/sql_reservations')
 
 
 const getRestaurant = async (restaurantId) => {
@@ -21,18 +23,19 @@ const getAllRestaurants = async () => {
 };
 
 
-const getRestaurantsByType = async () => {
+const getRestaurantsByName = async (name) => {
     try {
-        return await Restaurant.findAll(); 
+        if (name) {
+            const restaurant = await Restaurant.findOne({ where: { name: name } });
+            return restaurant  || 'Restaurante no encontrado';
+        } else {
+            throw new Error('Nombre no proporcionado');
+        }
     } catch (error) {
         throw error;
     }
 };
 
-
-const getRatingbyRestaurant = async () =>{
-
-}
 
 
 const createRestaurant = async (restaurantData) => {
@@ -44,9 +47,6 @@ const createRestaurant = async (restaurantData) => {
     }
 }
 
-const postRating = async () =>{
-
-}
 
 const updateRestaurant = async (restaurantId, updateData) => {
     try {
@@ -61,23 +61,22 @@ const updateRestaurant = async (restaurantId, updateData) => {
     }
 }
 
-const updateRating = async () => {
-
-    
-}
 
 const deleteRestaurant = async (restaurantId) => {
     try {
-        const restaurant = await Restaurant.findByPk(restaurantId);
-        if (restaurant) {
-            await restaurant.destroy();
-            return restaurant; 
-        } else {
+        await Comment.destroy({ where: { id_restaurant: restaurantId } });
+        await Reservation.destroy({ where: { id_restaurant: restaurantId } });
+        //se borran todas las filas dependientes de esta tabla
+        const rows = await Restaurant.destroy({ where: { id_restaurant: restaurantId } }); 
+
+        if (rows === 0) {
             throw new Error('Restaurante no encontrado');
         }
+
+        return { message: 'Restaurante borrado', restaurantId: restaurantId };
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { getRestaurant, getAllRestaurants, createRestaurant, updateRestaurant, deleteRestaurant };
+module.exports = { getRestaurant, getAllRestaurants, getRestaurantsByName, createRestaurant, updateRestaurant, deleteRestaurant };
