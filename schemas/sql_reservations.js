@@ -23,8 +23,8 @@ const Reservation = db.define(
       allowNull: false,
       
     },
-    reservation_date: {
-      field: "reservation_date",
+    reservation_datetime: {
+      field: "reservation_datetime",
       type: DataTypes.DATEONLY,
       allowNull: false,
     },

@@ -4,14 +4,14 @@ const Comment = require('./sql_comments');
 const Reservation = require('./sql_reservations');
 
 
-User.hasMany(Reservation);
-Reservation.belongsTo(User);
+User.hasMany(Comment, { foreignKey: 'id_user' });
+Comment.belongsTo(User, { foreignKey: 'id_user' });
 
-User.hasMany(Comment);
-Comment.belongsTo(User);
+User.hasMany(Reservation, { foreignKey: 'id_user' });
+Reservation.belongsTo(User, { foreignKey: 'id_user' });
 
-Restaurant.hasMany(Comment);
-Comment.belongsTo(Restaurant);
+Restaurant.hasMany(Comment, { foreignKey: 'id_restaurant' });
+Comment.belongsTo(Restaurant, { foreignKey: 'id_restaurant' });
 
-Restaurant.hasMany(Reservation);
-Reservation.belongsTo(Restaurant)
+Restaurant.hasMany(Reservation, { foreignKey: 'id_restaurant' });
+Reservation.belongsTo(Restaurant, { foreignKey: 'id_restaurant' });

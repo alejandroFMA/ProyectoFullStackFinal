@@ -1,69 +1,61 @@
-const Comment = require('../schema/');
+const Comment = require('../schemas/sql_comments');
 
-// const getReservationByDate = async (ReservationId) => {
-//          try{
-//             const ReservationId = await Reservation.findByPk(restaurantId);
-//             return restaurant || 'Restaurante no encontrado';
-      
-//     } catch (error) {
-//         throw error;
-//     }
-// };
-
-
-const getAllCommentsByEmail = async () => {
-    try {
-        return await Restaurant.findAll(); 
-    } catch (error) {
-        throw error;
-    }
+const getComment = async (commentId) =>{
+    try{
+        const comment = await Comment.findByPk(commentId);
+        return comment || 'Comentario no encontrado';
+  
+} catch (error) {
+    throw error;
+}
 };
 
-const getCommentsByRestaurant = async () => {
+
+
+const getAllComments = async () => {
     try {
-        return await Restaurant.findAll(); 
+        return await Comment.findAll(); 
     } catch (error) {
         throw error;
     }
 };
 
 
-
-const createComment = async (restaurantData) => {
+const createComment = async (commentData) => {
     try {
-        const restaurant = await Restaurant.create(restaurantData);
-        return restaurant;
+        const comment = await Comment.create(commentData);
+        return comment;
     } catch (error) {
         throw error;
     }
 }
 
-// const updateReservation = async (restaurantId, updateData) => {
-//     try {
-//         const restaurant = await Restaurant.findByPk(restaurantId);
-//         if (restaurant) {
-//             await restaurant.update(updateData);
-//             return restaurant;
-//         }
-//         throw new Error('Restaurante no encontrado');
-//     } catch (error) {
-//         throw error;
-//     }
-// }
-
-
-const deleteComment = async (restaurantId) => {
+const updateComment = async (commentId, updateData) => {
     try {
-        const restaurant = await Restaurant.findByPk(restaurantId);
-        if (restaurant) {
-            await restaurant.destroy();
-            return restaurant; 
+        const comment = await Comment.findByPk(commentId);
+        if (comment) {
+            await comment.update(updateData);
+            return comment;
+        }
+        throw new Error('Comentario no encontrado');
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+const deleteComment = async (commentId) => {
+    try {
+        const comment = await Comment.findByPk(commentId);
+        if (comment) {
+            await comment.destroy();
+            return comment; 
         } else {
-            throw new Error('Restaurante no encontrado');
+            throw new Error('Comentario no encontrado');
         }
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { };
+module.exports = { getComment, getAllComments, createComment, updateComment ,deleteComment};

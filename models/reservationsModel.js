@@ -1,64 +1,72 @@
 const Reservation = require('../schemas/sql_reservations');
 
+const getReservation = async (reservationId) =>{
+    try{
+        const reservation = await Reservation.findByPk(reservationId);
+        return reservation || 'Restaurante no encontrado';
+  
+} catch (error) {
+    throw error;
+}
+};
 
-
-// const getReservationByDate = async (ReservationId) => {
-//          try{
-//             const ReservationId = await Reservation.findByPk(restaurantId);
-//             return restaurant || 'Restaurante no encontrado';
+const getReservationByDate = async (reservationId) => {
+         try{
+            const reservation = await Reservation.findByPk(reservationId);
+            return reservation || 'Reservae no encontrado';
       
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+// const getAllReservationsByEmail = async () => {
+//     try {
+//         return await Reservation.findAll(); 
 //     } catch (error) {
 //         throw error;
 //     }
 // };
 
-
-const getAllReservationsByEmail = async () => {
-    try {
-        return await Restaurant.findAll(); 
-    } catch (error) {
-        throw error;
-    }
-};
-
 const getAllReservations = async () => {
     try {
-        return await Restaurant.findAll(); 
+        return await Reservation.findAll(); 
     } catch (error) {
         throw error;
     }
 };
 
 
-const createReservation = async (restaurantData) => {
+const createReservation = async (reservationData) => {
     try {
-        const restaurant = await Restaurant.create(restaurantData);
-        return restaurant;
+        const reservation = await Reservation.create(reservationData);
+        return reservation;
     } catch (error) {
         throw error;
     }
 }
 
-// const updateReservation = async (restaurantId, updateData) => {
-//     try {
-//         const restaurant = await Restaurant.findByPk(restaurantId);
-//         if (restaurant) {
-//             await restaurant.update(updateData);
-//             return restaurant;
-//         }
-//         throw new Error('Restaurante no encontrado');
-//     } catch (error) {
-//         throw error;
-//     }
-// }
-
-
-const deleteReservation = async (restaurantId) => {
+const updateReservation = async (reservationId, updateData) => {
     try {
-        const restaurant = await Restaurant.findByPk(restaurantId);
-        if (restaurant) {
-            await restaurant.destroy();
-            return restaurant; 
+        const reservation = await Reservation.findByPk(reservationId);
+        if (reservation) {
+            await reservation.update(updateData);
+            return reservation;
+        }
+        throw new Error('Reserva no encontrada');
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+const deleteReservation = async (reservationId) => {
+    try {
+        const reservation = await Reservation.findByPk(reservationId);
+        if (reservation) {
+            await reservation.destroy();
+            return reservation; 
         } else {
             throw new Error('Restaurante no encontrado');
         }
@@ -67,4 +75,4 @@ const deleteReservation = async (restaurantId) => {
     }
 }
 
-module.exports = { };
+module.exports = { getReservation, getAllReservations, createReservation, updateReservation,deleteReservation};

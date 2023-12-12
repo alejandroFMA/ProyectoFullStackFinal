@@ -77,7 +77,7 @@ const deleteRestaurant = async (req, res) => {
             return res.status(404).json({ message: 'Restaurante no encontrado' });
         }
   
-        res.status(200).json({ message: 'Restaurando eliminado' });
+        res.status(200).json({ message: 'Restauranto eliminado' });
   } catch (error) {
       res.status(500).json({ message: error.message });
   }

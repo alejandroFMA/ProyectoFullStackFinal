@@ -20,12 +20,16 @@ db.sync().then(() => {
 
 //routes
 
-const usersAPIroutes = require("./routes/users.routes");
-const restaurantAPIroutes = require("./routes/restaurants.routes")
+const userApiRoutes = require("./routes/users.routes");
+const restaurantApiRoutes = require("./routes/restaurants.routes")
+const reservationApiRoutes = require('./routes/reservations.routes')
+const commentApiRoutes = require('./routes/comments.routes')
 
+app.use('/api', userApiRoutes);
+app.use('/api', restaurantApiRoutes);
+app.use('/api', reservationApiRoutes);
+app.use('/api', commentApiRoutes);
 
-app.use('/api', usersAPIroutes);
-app.use('/api', restaurantAPIroutes);
 
 
 
