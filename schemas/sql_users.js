@@ -18,7 +18,7 @@ const User = db.define(
       unique: true,
       validate: {
         is: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-      }
+      },
     },
     //Checks that a password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces.
     password: {
@@ -27,15 +27,21 @@ const User = db.define(
       allowNull: false,
       validate: {
         is: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/,
-      }
+      },
     },
     admin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    username: {
+      field: "username",
+      type: DataTypes.STRING(40),
+      allowNull: false,
+      unique: true,
+    },
   },
   {
-    sequelize: db, 
+    sequelize: db,
     modelName: "Users",
     tableName: "users",
     timestamps: false,

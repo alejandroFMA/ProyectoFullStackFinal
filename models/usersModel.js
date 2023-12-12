@@ -1,5 +1,14 @@
 const User = require('../schemas/sql_users');
 
+const getUser = async (userId) => {
+    try{
+        const user = await User.findByPk(userId);
+        return user || 'Restaurante no encontrado';
+    } catch (error) {
+        throw error;
+    }
+};
+
 const getUserByEmail = async (email) => {
     try {
         if (email) {
@@ -47,13 +56,13 @@ const updateUser = async (userId, updateData) => {
 }
 
 
-const deleteUser = async (email) => {
+const deleteUser = async (userId) => {
     try {
-        const user = await User.destroy({ where: { email: email } });
+        const user = await User.destroy();
         return user;
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { getUserByEmail, getAllUsers, createUser, updateUser, deleteUser };
+module.exports = { getUser, getUserByEmail, getAllUsers, createUser, updateUser, deleteUser };

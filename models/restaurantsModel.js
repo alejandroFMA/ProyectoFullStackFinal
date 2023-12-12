@@ -21,6 +21,19 @@ const getAllRestaurants = async () => {
 };
 
 
+const getRestaurantsByType = async () => {
+    try {
+        return await Restaurant.findAll(); 
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+const getRatingbyRestaurant = async () =>{
+
+}
+
 
 const createRestaurant = async (restaurantData) => {
     try {
@@ -29,6 +42,10 @@ const createRestaurant = async (restaurantData) => {
     } catch (error) {
         throw error;
     }
+}
+
+const postRating = async () =>{
+
 }
 
 const updateRestaurant = async (restaurantId, updateData) => {
@@ -44,6 +61,10 @@ const updateRestaurant = async (restaurantId, updateData) => {
     }
 }
 
+const updateRating = async () => {
+
+    
+}
 
 const deleteRestaurant = async (restaurantId) => {
     try {

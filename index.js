@@ -15,6 +15,16 @@ db.sync().then(() => {
   console.log('Base de datos sincronizada');
 });
 
+//routes
+
+const usersAPIroutes = require("./routes/users.routes");
+
+
+app.use('/api/', usersAPIroutes);
+
+
+
+
 //middlewares
 
 const morgan = require('./middlewares/morgan');
