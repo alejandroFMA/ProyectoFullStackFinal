@@ -1,8 +1,8 @@
 const { db } = require("../config/sql_connection");
 const { DataTypes } = require("sequelize");
 
-const Users = db.define(
-  "users",
+const Restaurant = db.define(
+  "Restaurant",
   {
     user_id: {
       field: "id",
@@ -11,37 +11,44 @@ const Users = db.define(
       primaryKey: true,
       allowNull: false,
     },
-    email: {
-      field: "email",
+    name: {
+      field: "name",
       type: DataTypes.STRING(40),
       allowNull: false,
-      unique: true,
-      validate: {
-        is: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-      }
+      unique: true
     },
     //Checks that a password has a minimum of 6 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number with no spaces.
-    password: {
-      field: "password",
+    address: {
+      field: "address",
       type: DataTypes.STRING(100),
       allowNull: false,
-      validate: {
-        is: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/,
-      }
     },
-    admin: {
+    type: {
+        field: "type",
+        type: DataTypes.STRING(100),
+        allowNull: false,
+      },
+
+    vegan: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+
+    rating: {
+        field: "rating",
+        type: DataTypes.DECIMAL(3,1),
+        allowNull: false,
+        defaultValue: 0.0
+      }
   },
   {
-    db,
-    modelName: "Users",
-    tableName: "users",
+    sequelize: db, 
+    modelName: "Restaurants",
+    tableName: "restaurants",
     timestamps: false,
   }
 );
 
-Users.sync();
+Restaurant.sync();
 
-module.exports = Users;
+module.exports = Restaurant;

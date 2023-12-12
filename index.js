@@ -2,13 +2,18 @@ const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
 require('dotenv').config();
-const { connectSQL } = require('./config/sql_connection');
+const { db } = require('./config/sql_connection');
+require('./schemas/sql_association')
 
 const port = process.env.PORT || 3000;
 
 
 const app = express();
 app.use(express.json())
+
+db.sync().then(() => {
+  console.log('Base de datos sincronizada');
+});
 
 //middlewares
 
@@ -20,7 +25,7 @@ app.get('/', function (req, res) {
 
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 
-app.listen(3000, async function () {
+app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}`)
-  await connectSQL();
+ 
 });
