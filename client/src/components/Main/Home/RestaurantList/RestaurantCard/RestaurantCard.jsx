@@ -14,6 +14,7 @@ const RestaurantCard = ({key, name, vegan,address, type, rating}) => {
     
     </>
   );;
+
 };
 
 export default RestaurantCard;
