@@ -1,0 +1,37 @@
+{
+  "name": "proyectofullstackfinal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\t",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandroFMA/ProyectoFullStackFinal.git"
+  },
+  "author": "Alejandro Marquez Andrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandroFMA/ProyectoFullStackFinal/issues"
+  },
+  "homepage": "https://github.com/alejandroFMA/ProyectoFullStackFinal#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsdoc": "^4.0.2",
+    "morgan": "^1.10.0",
+    "node-fecth": "^0.0.1-security",
+    "pg": "^8.11.3",
+    "sequelize": "^6.35.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
