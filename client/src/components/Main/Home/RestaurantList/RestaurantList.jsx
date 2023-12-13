@@ -2,6 +2,8 @@ import React from "react";
 import RestaurantCard from "./RestaurantCard"
 
 const RestaurantList = ({restaurants}) => {
+
+  console.log(restaurants)
   return (
 
   <section className="restaurantList">
@@ -11,7 +13,8 @@ const RestaurantList = ({restaurants}) => {
       name={restaurant.name}
       address={restaurant.address}    
       type={restaurant.type}
-      vegan={restaurant.vegan}/>
+      vegan={restaurant.vegan}
+      rating={restaurant.rating}/>
   ))}
   </section>)
  
