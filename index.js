@@ -1,9 +1,14 @@
 const express = require('express');
 const session = require('express-session');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
+require('./config/google.config');
+require('./config/jwt.config')(passport);
 const { db } = require('./config/sql_connection');
-require('./schemas/sql_association')
+const path = require('path')
+
 
 const port = process.env.PORT || 3000;
 
@@ -13,11 +18,24 @@ const morgan = require('./middlewares/morgan');
 
 const app = express();
 app.use(express.json())
+app.use(cookieParser());
+
 
 db.sync().then(() => {
   console.log('Base de datos sincronizada');
 });
-app.use(cors())
+app.use('*', cors());
+
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 //routes
 
@@ -25,6 +43,10 @@ const userApiRoutes = require("./routes/users.routes");
 const restaurantApiRoutes = require("./routes/restaurants.routes")
 const reservationApiRoutes = require('./routes/reservations.routes')
 const commentApiRoutes = require('./routes/comments.routes')
+const authRoute = require('./routes/auth.routes');
+const auth = require('./controllers/auth.controller');
+
+
 
 app.use('/api', userApiRoutes);
 app.use('/api', restaurantApiRoutes);
@@ -32,11 +54,14 @@ app.use('/api', reservationApiRoutes);
 app.use('/api', commentApiRoutes);
 
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
+
+
+app.get("/auth/google", passport.authenticate("google", { scope: ['email', 'profile'], prompt: "select_account" }));
+app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/auth/failed' }), auth.googleAuth);
+
+app.use('/', authRoute);
+
 
 
 // //* Serve static assets in production, must be at this location of this file

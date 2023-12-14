@@ -6,9 +6,9 @@ const Nav = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
   return(
     <nav>
-    
       <ul className="nav-bar">
         <li className="nav-link">
           <Link to="/" 
@@ -35,8 +35,9 @@ const Nav = () => {
           >User Reservations</Link>
         </li>
       </ul>
-    </nav>
-  );
+    </nav>)
+
+ 
 };
 
 export default Nav;

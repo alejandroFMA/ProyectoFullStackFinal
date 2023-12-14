@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Reservations from "../Main/Reservations";
 import RestaurantDetail from "../Main/RestaurantDetail";
@@ -10,7 +10,6 @@ import SignUp from "../Main/SignUp";
 
 const Main = () => {
 
-  const location = useLocation()
 
   return (
     <>

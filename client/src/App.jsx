@@ -17,7 +17,6 @@ function App() {
         <RestaurantContext.Provider value={{ restaurants, setRestaurants }}>
           <Main />
         </RestaurantContext.Provider>
-
         <Footer />
       </BrowserRouter>
     </>
