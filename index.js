@@ -17,6 +17,7 @@ app.use(express.json())
 db.sync().then(() => {
   console.log('Base de datos sincronizada');
 });
+app.use(cors())
 
 //routes
 
