@@ -53,6 +53,7 @@ app.use('/api', restaurantApiRoutes);
 app.use('/api', reservationApiRoutes);
 app.use('/api', commentApiRoutes);
 
+app.use('/', authRoute);
 
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 
@@ -60,7 +61,6 @@ app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 app.get("/auth/google", passport.authenticate("google", { scope: ['email', 'profile'], prompt: "select_account" }));
 app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/auth/failed' }), auth.googleAuth);
 
-app.use('/', authRoute);
 
 
 

@@ -1,7 +1,9 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
+
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -35,6 +37,14 @@ const Nav = () => {
           >User Reservations</Link>
         </li>
       </ul>
+      <div>
+        <button type="button"
+        onClick= {() => navigate('/signin')}>LOGIN</button>
+        <button type="button"
+        onClick= {() => navigate('/signup')}>CREAR CUENTA</button>
+        <button type="button"
+        onClick= {() => navigate('/signout')}>SALIR</button>
+      </div>
     </nav>)
 
  

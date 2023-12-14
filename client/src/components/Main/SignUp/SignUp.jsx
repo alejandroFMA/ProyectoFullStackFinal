@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -12,19 +10,31 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import{ useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const defaultTheme = createTheme();
 
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
+const signUp = () =>{
+const navigate = useNavigate();
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  
+  try {
+    await axios.post('http://localhost:3000/signup', {
       email: data.get('email'),
       password: data.get('password'),
+      username: data.get('username'),
     });
-  };
+
+    navigate('/signin');
+  } catch (error) {
+    console.error('Error en el registro:', error.response.data.message);
+  }
+};
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -63,7 +73,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Email"
                   name="email"
                   autoComplete="email"
                 />
@@ -90,8 +100,8 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/signin" variant="body2">
+                  ¿Tienes una cuenta? Entra aquí
                 </Link>
               </Grid>
             </Grid>
@@ -101,3 +111,5 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+export default signUp;

@@ -12,19 +12,36 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const defaultTheme = createTheme();
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
+ const SignIn = () => {
+  const navigate = useNavigate();
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  
+    try {
+      const response = await axios.post('http://localhost:3000/signin', {
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+  
+      if (response.status === 200) {
+        localStorage.setItem('token', response.data.token); 
+        navigate('/'); 
+      } else {
+        alert('Email o contraseña incorrectos');
+      }
+    } catch (error) {
+      alert(error.response.data.message || 'Error de autenticación')      
+  }
+}
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -72,12 +89,12 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Entrar
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/signUp" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/signup" variant="body2">
+                  {"¿No tienes cuenta? Crea una"}
                 </Link>
               </Grid>
             </Grid>
@@ -87,3 +104,5 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
+
+export default SignIn
