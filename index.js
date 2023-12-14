@@ -32,13 +32,20 @@ app.use('/api', reservationApiRoutes);
 app.use('/api', commentApiRoutes);
 
 
-
-
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
+
+
+// //* Serve static assets in production, must be at this location of this file
+// if (process.env.NODE_ENV === 'production') {
+//   //*Set static folder
+//   app.use(express.static('client/build'));
+  
+//   app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+// }
 
 app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}`)
