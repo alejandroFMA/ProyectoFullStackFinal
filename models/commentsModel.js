@@ -11,6 +11,17 @@ const getComment = async (commentId) =>{
 };
 
 
+const getCommentsbyRestaurantID = async (restaurantId) =>{
+    try{
+        const comment = await Comment.findAll( {where:{id_restaurant: restaurantId}});
+        return comment || 'Comentarios no encontrado';
+  
+} catch (error) {
+    throw error;
+}
+
+}
+
 
 const getAllComments = async () => {
     try {
@@ -58,4 +69,4 @@ const deleteComment = async (commentId) => {
     }
 }
 
-module.exports = { getComment, getAllComments, createComment, updateComment ,deleteComment};
+module.exports = { getComment, getCommentsbyRestaurantID, getAllComments, createComment, updateComment ,deleteComment};
