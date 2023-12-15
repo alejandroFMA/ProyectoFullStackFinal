@@ -3,7 +3,6 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
 import axios from 'axios';
 
 const FormReserve = () => {
@@ -49,6 +48,10 @@ const FormReserve = () => {
   };
 
 
+
+
+
+
   return <>
   <form>
       <input  
@@ -66,6 +69,10 @@ const FormReserve = () => {
              value={reserve.reservationDateTime}
              onChange={handleDateTimeChange}
              renderInput={(params) => <TextField {...params} />}
+             shouldDisableTime={(value, view) =>
+              view === 'hours' && value.hour() > 12 && value.hour() < 23
+            }
+            disablePast
              required
         />
       </DemoContainer>

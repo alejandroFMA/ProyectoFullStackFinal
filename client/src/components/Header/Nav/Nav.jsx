@@ -45,7 +45,7 @@ const Nav = () => {
           >User Reservations</Link>
         </li>
       </ul>
-      {!isAuthenticated ? (
+      {isAuthenticated ? (
           <button type="button" onClick={handleLogout}>SALIR</button>
         ) : (
           <>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormReserve from "./FormReserve";
@@ -9,10 +8,10 @@ const RestaurantDetail = () => {
 
   const [comments, setComments] = useState([]);
   const { id } = useParams(); 
+  console.log(id)
+  const numberId= Number(id)
   const [restaurantDetail, setRestaurantDetail] = useState({});
- const newId = id.slice(1)
- const numberId= Number(newId)
- console.log(numberId)
+
 
  useEffect(() => {
   fetchRestaurantData();
@@ -32,7 +31,7 @@ const RestaurantDetail = () => {
 
   const fetchCommentsByRestaurantId = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/comments/${numberId}`);
+      const response = await axios.get(`http://localhost:3000/api/comment/restaurant/${numberId}`);
       console.log(response.data);
       setComments(response.data);
     } catch (error) {
@@ -40,7 +39,7 @@ const RestaurantDetail = () => {
     }
   };
 
-
+console.log(comments)
   return (
     <>
       <section>

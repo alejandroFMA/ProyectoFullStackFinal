@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -17,7 +16,7 @@ import axios from "axios";
 const defaultTheme = createTheme();
 
 const signUp = () =>{
-const navigate = useNavigate();
+const navigate = useNavigate;
 
 const handleSubmit = async (event) => {
   event.preventDefault();
