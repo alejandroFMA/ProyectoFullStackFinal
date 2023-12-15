@@ -31,7 +31,7 @@ const getComment = async (req, res) => {
 
 const getCommentsbyRestaurantID = async (req, res) => {
   try {
-    const restaurantId = req.query.params;
+    const restaurantId = req.params.id;
     if (!restaurantId) {
       return res.status(400).json({ message: "ID de restaurante requerido" });
     }

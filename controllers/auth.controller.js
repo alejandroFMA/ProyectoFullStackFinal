@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../schemas/sql_users");
 const bcrypt = require('bcrypt');
+const { token } = require("morgan");
 require("../config/google.config");
 require("dotenv").config();
 
@@ -33,7 +34,13 @@ const signUpUser = async (req, res) => {
   
       const isMatch = await bcrypt.compare(req.body.password, user.password);
       if (isMatch) {
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+        const tokenData = {
+          id: user.id_user,  
+          email: user.email,
+          username: user.username,
+        };
+  
+        const token = jwt.sign(tokenData, process.env.JWT_SECRET, {
           expiresIn: 3600000,
         });
   
@@ -44,6 +51,7 @@ const signUpUser = async (req, res) => {
     } catch (error) {
       res.status(400).json({ message: `ERROR: ${error.message}` });
     }
+  
   };
 
   const googleAuth = async (req, res) => {

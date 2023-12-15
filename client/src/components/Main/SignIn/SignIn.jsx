@@ -39,9 +39,10 @@ const defaultTheme = createTheme();
         alert('Email o contraseña incorrectos');
       }
     } catch (error) {
-      alert(error.response.data.message || 'Error de autenticación')      
-  }
-}
+      console.error(error.response);
+      alert(error.response.data.message || 'Error de autenticación');
+    }
+  } 
 
   return (
     <ThemeProvider theme={defaultTheme}>

@@ -10,7 +10,7 @@ const Home = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [foodType, setFoodType] = useState('');
-  const [isVegan, setIsVegan] = useState(false);
+  const [vegan, setVegan] = useState(false);
 
   useEffect(() => {
     fetchAllRestaurants();
@@ -19,7 +19,6 @@ const Home = () => {
   const fetchAllRestaurants = async () => {
     try {
       const response = await axios.get('http://localhost:3000/api/restaurant');
-      console.log(response.data)
       setRestaurants(response.data);
       setFilterRestaurants(response.data);
     } catch (error) {
@@ -34,14 +33,13 @@ const Home = () => {
       return (
         (!searchTerm || restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
         (!foodType || restaurant.type === foodType) &&
-        (isVegan === false || restaurant.vegan === isVegan) 
+        (vegan === false || restaurant.vegan === vegan) 
       );
     });
 
     setFilterRestaurants(filteredRestaurants);
-  }, [restaurants, searchTerm, foodType, isVegan]); // Cambio a searchTerm
+  }, [restaurants, searchTerm, foodType, vegan]); // Cambio a searchTerm
 
-  console.log("Is Vegan:", isVegan);
 
   const handleSearch = (searchValue) => {
     setSearchTerm(searchValue);
@@ -52,8 +50,8 @@ const Home = () => {
       <Form 
         onSearchChange={handleSearch} 
         setFoodType={setFoodType} 
-        isVegan={isVegan} 
-        setIsVegan={setIsVegan}
+        isVegan={vegan} 
+        setIsVegan={setVegan}
       />    
       <RestaurantList restaurants={filterRestaurants} />
       </>

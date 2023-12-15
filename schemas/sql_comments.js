@@ -32,6 +32,8 @@ const Comment = db.define(
       field: "timestamp",
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW
+
     },
 
   },

@@ -1,4 +1,4 @@
-const Form = ({onSearchChange, setFoodType, isVegan, setIsVegan}) => {
+const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +25,8 @@ const Form = ({onSearchChange, setFoodType, isVegan, setIsVegan}) => {
           Vegano:
           <input
             type="checkbox"
-            checked={isVegan}
-            onChange={(e) => setIsVegan(e.target.checked)}
+            checked={vegan}
+            onChange={(e) => setVegan(e.target.checked)}
           />
         </label>
 

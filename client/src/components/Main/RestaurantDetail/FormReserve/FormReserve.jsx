@@ -50,6 +50,7 @@ const FormReserve = () => {
 
   return <>
   <form>
+    <h1>Haz tu reserva ahora</h1>
       <input  
         type="email"
         name="email"
