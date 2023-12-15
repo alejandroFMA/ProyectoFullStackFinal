@@ -1,9 +1,17 @@
 
 import { Link, useNavigate } from "react-router-dom";
+import  {useState } from "react";
 
 const Nav = () => {
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); 
+    setIsAuthenticated(false); 
+    alert("Usuario desconectado")
+    navigate('/');
+  };
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -37,14 +45,14 @@ const Nav = () => {
           >User Reservations</Link>
         </li>
       </ul>
-      <div>
-        <button type="button"
-        onClick= {() => navigate('/signin')}>LOGIN</button>
-        <button type="button"
-        onClick= {() => navigate('/signup')}>CREAR CUENTA</button>
-        <button type="button"
-        onClick= {() => navigate('/signout')}>SALIR</button>
-      </div>
+      {!isAuthenticated ? (
+          <button type="button" onClick={handleLogout}>SALIR</button>
+        ) : (
+          <>
+            <button type="button" onClick={() => navigate('/signin')}>LOGIN</button>
+            <button type="button" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
+          </>
+        )}
     </nav>)
 
  
