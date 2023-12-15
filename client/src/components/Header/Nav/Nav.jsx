@@ -1,10 +1,19 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import  {useState } from "react";
+import  {useState, useEffect } from "react";
 
 const Nav = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
 
   const handleLogout = () => {
     localStorage.removeItem('token'); 
@@ -45,14 +54,15 @@ const Nav = () => {
           >User Reservations</Link>
         </li>
       </ul>
-      {isAuthenticated ? (
-          <button type="button" onClick={handleLogout}>SALIR</button>
-        ) : (
-          <>
-            <button type="button" onClick={() => navigate('/signin')}>LOGIN</button>
+      {!isAuthenticated ? (
+        <>
+        <button type="button" onClick={() => navigate('/signin')}>LOGIN</button>
             <button type="button" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
-          </>
-        )}
+        </>
+      ) : (
+        <button type="button" onClick={handleLogout}>SALIR</button>
+      )}
+    
     </nav>)
 
  

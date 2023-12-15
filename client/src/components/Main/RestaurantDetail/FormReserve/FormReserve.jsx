@@ -48,10 +48,6 @@ const FormReserve = () => {
   };
 
 
-
-
-
-
   return <>
   <form>
       <input  
