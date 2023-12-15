@@ -1,16 +1,15 @@
 import {useState} from "react";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { TextField } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import axios from 'axios';
 
-const FormReserve = () => {
+const FormReserve = ({userInfo, id_restaurant}) => {
 
   const [reserve, setReserve]= useState({
-  email: '',
-  reservationDateTime: null,
-  numberPeople: ''})
+  reservation_datetime: null,
+  people: ''})
 
 
   const handleInputChange = (e) => {
@@ -20,7 +19,7 @@ const FormReserve = () => {
 
 
   const handleDateTimeChange = (newValue) => {
-    setReserve({ ...reserve, reservationDateTime: newValue });
+    setReserve({ ...reserve, reservation_datetime: newValue });
   };
 
 
@@ -28,42 +27,37 @@ const FormReserve = () => {
     event.preventDefault();
     try {
       const reservationData = {
-        email: reserve.email,
-        reservation_datetime: reserve.reservationDateTime.toISOString(), 
-        customers: parseInt(reserve.numberPeople, 10),
-        status: "Pendiente"
+        id_user:userInfo.id,
+        id_restaurant:id_restaurant,
+        reservation_datetime: reserve.reservation_datetime.toISOString(), 
+        customers: parseInt(reserve.people, 10)
+       
       };
-      const response = await axios.post('/api/reservation', reservationData);
+      const response = await axios.post('http://localhost:3000/api/reservation', reservationData);
       console.log(response.data);
       setReserve({
-        email: '',
-        reservationDateTime: null,
-        numberPeople: ''
+        reservation_datetime: null,
+        people: ''
       });
+      alert("reserva realizada")
       // POP UP DE RESERVA OK
     } catch (error) {
       console.error("Error creating reservation:", error.response?.data || error.message);
+      alert(error.message)
       // POP UP DE ERROR
     }
   };
 
 
   return <>
-  <form>
+  <form onSubmit={handleSubmit}>
     <h1>Haz tu reserva ahora</h1>
-      <input  
-        type="email"
-        name="email"
-        placeholder="Introduce Email"
-        value={reserve.email}
-        onChange={handleInputChange}
-        required></input>
+      
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={['DateTimePicker', 'DateTimePicker']}>
         <DateTimePicker
              label="Fecha y hora de reserva"
              name="reservationDateTime"
-             value={reserve.reservationDateTime}
+             value={reserve.reservation_datetime}
              onChange={handleDateTimeChange}
              renderInput={(params) => <TextField {...params} />}
              shouldDisableTime={(value, view) =>
@@ -72,20 +66,20 @@ const FormReserve = () => {
             disablePast
              required
         />
-      </DemoContainer>
     </LocalizationProvider>
 
       <input type="number"
-        name="numberPeople"
-        id="numberPeople"
+        name="people"
+        id="people"
         placeholder="Número de personas"
-        value={reserve.numberPeople}
+        value={reserve.people}
         onChange={handleInputChange}
         min="1"
         max="8"
         autoComplete="off"
         required></input>
-      <button type="submit" onSubmit={handleSubmit} >Enviar</button>
+
+      <button type="submit">Enviar</button>
   </form>
   
   

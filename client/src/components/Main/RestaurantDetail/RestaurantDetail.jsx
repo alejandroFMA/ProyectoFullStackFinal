@@ -56,7 +56,7 @@ const RestaurantDetail = () => {
         <p>Rating: {restaurantDetail.rating}</p>
       </section>
       <Comments userInfo={userInfo} comments={comments} />
-      <FormReserve userInfo={userInfo}/>
+      <FormReserve id_restaurant={numberId} userInfo={userInfo}/>
     </>
   );
 };
