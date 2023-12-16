@@ -1,4 +1,5 @@
-const Reservation = require('../schemas/sql_reservations');
+const {Reservation, Restaurant} = require("../schemas/association")
+
 
 const getReservation = async (reservationId) =>{
     try{
@@ -10,32 +11,31 @@ const getReservation = async (reservationId) =>{
 }
 };
 
-const getReservationByDate = async (reservationId) => {
-         try{
-            const reservation = await Reservation.findByPk(reservationId);
-            return reservation || 'Reservae no encontrado';
-      
-    } catch (error) {
-        throw error;
-    }
-};
-
-
-// const getAllReservationsByEmail = async () => {
-//     try {
-//         return await Reservation.findAll(); 
-//     } catch (error) {
-//         throw error;
-//     }
-// };
 
 const getAllReservations = async () => {
     try {
-        return await Reservation.findAll(); 
+        return await Reservation.findAll()
+        
     } catch (error) {
         throw error;
     }
 };
+
+
+const getReservationsByUserId = async (userId) => {
+   
+    const reservations = await Reservation.findAll({
+      where: { id_user: userId},
+      include: [
+        {
+          model: Restaurant,
+            attributes: ["name", "address"]
+        }]
+    })
+    return reservations
+}
+  
+
 
 
 const createReservation = async (reservationData) => {
@@ -75,4 +75,4 @@ const deleteReservation = async (reservationId) => {
     }
 }
 
-module.exports = { getReservation, getAllReservations, createReservation, updateReservation,deleteReservation};
+module.exports = { getReservation, getAllReservations, getReservationsByUserId, createReservation, updateReservation,deleteReservation};

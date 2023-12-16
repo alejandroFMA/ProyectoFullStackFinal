@@ -7,6 +7,7 @@ require('dotenv').config();
 require('./config/google.config');
 require('./config/jwt.config')(passport);
 const { db } = require('./config/sql_connection');
+require('./schemas/association')
 const path = require('path')
 
 

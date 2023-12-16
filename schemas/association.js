@@ -13,5 +13,12 @@ Reservation.belongsTo(User, { foreignKey: 'id_user' });
 Restaurant.hasMany(Comment, { foreignKey: 'id_restaurant' });
 Comment.belongsTo(Restaurant, { foreignKey: 'id_restaurant' });
 
-Restaurant.hasMany(Reservation, { foreignKey: 'id_restaurant' });
 Reservation.belongsTo(Restaurant, { foreignKey: 'id_restaurant' });
+Restaurant.hasMany(Reservation, { foreignKey: 'id_restaurant' });
+
+module.exports = {
+    User,
+    Restaurant,
+    Comment,
+    Reservation,
+  };

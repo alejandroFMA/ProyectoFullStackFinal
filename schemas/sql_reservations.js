@@ -40,7 +40,8 @@ const Reservation = db.define(
     }
   },
   {
-    sequelize: db, 
+    sequelize: db,
+    modelName:"Reservation", 
     tableName: "reservations",
     timestamps: false,
   }

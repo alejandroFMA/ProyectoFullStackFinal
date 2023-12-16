@@ -39,6 +39,7 @@ const Comment = db.define(
   },
   {
     sequelize: db, 
+    modelName:"Comment",
     tableName: "comments",
     timestamps: false,
   }

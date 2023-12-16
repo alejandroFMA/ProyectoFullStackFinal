@@ -61,7 +61,7 @@ const FormReserve = ({userInfo, id_restaurant}) => {
              onChange={handleDateTimeChange}
              renderInput={(params) => <TextField {...params} />}
              shouldDisableTime={(value, view) =>
-              view === 'hours' && value.hour() > 12 && value.hour() < 23
+              view === 'hours' && value.hour() > 23 && value.hour() < 12
             }
             disablePast
              required

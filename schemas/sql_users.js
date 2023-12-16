@@ -42,7 +42,7 @@ const User = db.define(
   },
   {
     sequelize: db,
-    modelName: "Users",
+    modelName: "User",
     tableName: "users",
     timestamps: false,
   }

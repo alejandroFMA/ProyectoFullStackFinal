@@ -42,6 +42,21 @@ const getAllReservations = async (req, res) => {
 };
 
 
+const getReservationsByUserId= async (req, res) => {
+    const id = req.params.id;
+    if (!id) {
+        return res.status(400).json({ message: "No se proporcionó el ID del usuario" });
+    }
+
+    try {
+      const reservations = await Reservation.getReservationsByUserId(id);
+      res.json(reservations);
+    } catch (error) {
+      res.status(500).json({ message: "Error al obtener las reservas "+ error.message });
+    }
+  };
+
+
 const createReservation= async (req, res) => {
   try {
       const reservationData = req.body; 
@@ -57,7 +72,7 @@ const updateReservation = async (req, res) => {
   try {
       const reservationId = req.params.id; 
       const updateData = req.body; 
-      const reservation = await Restaurant.updateReservation(reservationId, updateData)
+      const reservation = await Reservation.updateReservation(reservationId, updateData)
       if (!reservation) {
           return res.status(404).json({ message: 'Reserva no encontrada' });
       }
@@ -66,7 +81,6 @@ const updateReservation = async (req, res) => {
       res.status(500).json({ message: error.message });
   }
 };
-
 
 
 const deleteReservation = async (req, res) => {
@@ -83,4 +97,4 @@ const deleteReservation = async (req, res) => {
   }
 };
 
-module.exports = {getReservation, getAllReservations, createReservation, updateReservation, deleteReservation};
+module.exports = {getReservation, getAllReservations,getReservationsByUserId, createReservation, updateReservation, deleteReservation};

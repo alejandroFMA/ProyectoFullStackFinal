@@ -43,7 +43,7 @@ const Restaurant = db.define(
   },
   {
     sequelize: db, 
-    modelName: "Restaurants",
+    modelName: "Restaurant",
     tableName: "restaurants",
     timestamps: false,
   }

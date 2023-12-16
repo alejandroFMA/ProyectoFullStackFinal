@@ -7,20 +7,20 @@ import FormReserve from "./FormReserve";
 import Comments from "./Comments";
 
 const RestaurantDetail = () => {
-  const { userInfo, setUserInfo } = useContext(UserInfoContext);
-  const [decodedToken, setDecodedToken] = useState("");
+  const { userInfo } = useContext(UserInfoContext);
+  // const [decodedToken, setDecodedToken] = useState("");
   const [comments, setComments] = useState([]);
   const { id } = useParams(); 
   console.log(id)
   const numberId= Number(id)
   const [restaurantDetail, setRestaurantDetail] = useState({});
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const decoded = jwtDecode(token);
-    setDecodedToken(decoded);
-    setUserInfo(decoded)
-}, [setUserInfo]);
+//   useEffect(() => {
+//     const token = localStorage.getItem("token");
+//     const decoded = jwtDecode(token);
+//     setDecodedToken(decoded);
+//     setUserInfo(decoded)
+// }, [setUserInfo]);
 
  useEffect(() => {
   fetchRestaurantData();

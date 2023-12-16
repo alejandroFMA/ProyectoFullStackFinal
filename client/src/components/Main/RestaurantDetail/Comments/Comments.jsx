@@ -2,6 +2,7 @@
 const Comments = ({comments, userInfo}) => {
 
   
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -14,7 +15,6 @@ const Comments = ({comments, userInfo}) => {
       //   }
 
       // });
-  
 
     }
 
@@ -23,6 +23,7 @@ const Comments = ({comments, userInfo}) => {
     {comments.map(comment => (
         <article>
           <p>{comment.text}</p>
+          <button type="button">Borrar</button>
         </article>
       ))}
     </section>
