@@ -1,9 +1,9 @@
 const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearchChange();
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onSearchChange();
+  // };
 
   return (
     <>
@@ -13,8 +13,8 @@ const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
           placeholder="Buscar restaurantes"
           onChange={(event) => onSearchChange(event.target.value)}
         />
-        <button type="submit" onSubmit={handleSubmit}>Buscar</button>
-        <select onChange={(e) => setFoodType(e.target.value)}>
+        {/* <button type="submit" onSubmit={handleSubmit}>Buscar</button> */}
+        <select onChange={(event) => setFoodType(event.target.value)}> {/* pendiente realizar fetch de types e restaurant para mapear select con todos los types*/}
           <option value="">Todos los Tipos</option>
           <option value="Americana">Americana</option>
           <option value="Italiana">Italiana</option>
@@ -27,7 +27,7 @@ const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
           <input
             type="checkbox"
             checked={vegan}
-            onChange={(e) => setVegan(e.target.checked)}
+            onChange={(event) => setVegan(event.target.checked)}
           />
         </label>
       </form>

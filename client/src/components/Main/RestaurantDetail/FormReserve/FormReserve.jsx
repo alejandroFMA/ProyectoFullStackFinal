@@ -13,8 +13,8 @@ const FormReserve = ({userInfo, id_restaurant}) => {
   people: ''})
 
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setReserve({ ...reserve, [name]: value });
   };
 
@@ -48,7 +48,6 @@ const FormReserve = ({userInfo, id_restaurant}) => {
       // POP UP DE ERROR
     }
   };
-
 
   return <>
   <form onSubmit={handleSubmit}>
