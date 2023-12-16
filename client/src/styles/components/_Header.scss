@@ -1,0 +1,28 @@
+header{
+ background-color: #e6e6e6;
+
+}
+
+
+nav{
+padding: 10px;
+z-index: 1000;
+}
+
+
+.nav-bar{
+
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+
+
+  
+}
+
+.nav-link-active>img{
+    width: 150px;
+    
+
+}

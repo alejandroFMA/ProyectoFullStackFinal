@@ -9,9 +9,9 @@ const Header = () => {
     return !noNav.includes(location.pathname);
   }
   return (
-    <div>
+    <header>
       {displayNav() && <Nav />}
-    </div>
+    </header>
   );
 };
 

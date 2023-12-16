@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import { RestaurantContext } from "../../client/src/context/restaurantContext";
 import { UserInfoContext } from "../../client/src/context/userInfoContext";
 import { BrowserRouter } from "react-router-dom";
+import "./styles/styles.scss"
+
 
 import "./App.css";
 

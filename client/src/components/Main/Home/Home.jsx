@@ -10,7 +10,7 @@ import {UserInfoContext} from "../../../context/userInfoContext";
 const Home = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext);
   const {setUserInfo}=useContext(UserInfoContext)
-  const [decodedToken, setDecodedToken] = useState("");
+  const [ decodedToken ,setDecodedToken] = useState("");
   const [filterRestaurants, setFilterRestaurants] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [foodType, setFoodType] = useState('');

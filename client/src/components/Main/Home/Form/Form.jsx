@@ -7,12 +7,13 @@ const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
 
   return (
     <>
-      <form>
+      <form className="filtroHome">
         <input
           type="text"
           placeholder="Buscar restaurantes"
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={(event) => onSearchChange(event.target.value)}
         />
+        <button type="submit" onSubmit={handleSubmit}>Buscar</button>
         <select onChange={(e) => setFoodType(e.target.value)}>
           <option value="">Todos los Tipos</option>
           <option value="Americana">Americana</option>
@@ -29,8 +30,6 @@ const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
             onChange={(e) => setVegan(e.target.checked)}
           />
         </label>
-
-        <button type="submit" onSubmit={handleSubmit}>Buscar</button>
       </form>
     </>
   );

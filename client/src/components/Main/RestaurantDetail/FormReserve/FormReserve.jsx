@@ -3,6 +3,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TextField } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import dayjs from 'dayjs';
 import axios from 'axios';
 
 const FormReserve = ({userInfo, id_restaurant}) => {
@@ -29,7 +30,7 @@ const FormReserve = ({userInfo, id_restaurant}) => {
       const reservationData = {
         id_user:userInfo.id,
         id_restaurant:id_restaurant,
-        reservation_datetime: reserve.reservation_datetime.toISOString(), 
+        reservation_datetime: dayjs(reserve.reservation_datetime), 
         customers: parseInt(reserve.people, 10)
        
       };
@@ -56,7 +57,7 @@ const FormReserve = ({userInfo, id_restaurant}) => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
              label="Fecha y hora de reserva"
-             name="reservationDateTime"
+             name="reservation_datetime"
              value={reserve.reservation_datetime}
              onChange={handleDateTimeChange}
              renderInput={(params) => <TextField {...params} />}

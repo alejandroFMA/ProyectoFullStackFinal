@@ -1,6 +1,8 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import  {useState, useEffect } from "react";
+import logoImg from "../../../assets/logo.png";
+
 
 const Nav = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -29,6 +31,12 @@ const Nav = () => {
   return(
     <nav>
       <ul className="nav-bar">
+      <li className="nav-link">
+          <Link to="/" 
+          className="nav-link-active"
+          onClick={scrollToTop}
+          ><img src={logoImg}></img></Link>
+        </li>
         <li className="nav-link">
           <Link to="/" 
           className="nav-link-active"
@@ -53,16 +61,22 @@ const Nav = () => {
           onClick={scrollToTop}
           >User Reservations</Link>
         </li>
-      </ul>
+     
       {!isAuthenticated ? (
         <>
+        <li>
         <button type="button" onClick={() => navigate('/signin')}>LOGIN</button>
-            <button type="button" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
+        </li>
+        <li>
+        <button type="button" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
+        </li>
         </>
       ) : (
+        <li>
         <button type="button" onClick={handleLogout}>SALIR</button>
+        </li>
       )}
-    
+     </ul>
     </nav>)
 
  
