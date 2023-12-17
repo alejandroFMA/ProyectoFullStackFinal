@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useEffect, useContext } from "react";
-import {UserInfoContext} from "../../../context/userInfoContext";
+import { useEffect } from "react";
 import ReservationList from "./ReservationList/ReservationList"
 import Filter from "./Filter/Filter";
+import {jwtDecode} from "jwt-decode";
 
 const Reservations = () => {
 
   const [reservations, setReservations] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterReservations, setFilterReservations] = useState([]);
-  const { userInfo } = useContext(UserInfoContext);
+ 
+  const token = localStorage.getItem('token');
+  const decoded = jwtDecode(token);
 
+  console.log(decoded)
 
   useEffect(() => {
+
     const fetchAllReserves = async () => {
-      if (!userInfo.id) return; 
+      
       try {
-        const response = await axios.get(`http://localhost:3000/api/reservation/user/${userInfo.id}`);
+        const response = await axios.get(`http://localhost:3000/api/reservation/user/${decoded.id}`);
         setReservations(response.data);
         setFilterReservations(response.data);
       } catch (error) {
@@ -26,7 +30,8 @@ const Reservations = () => {
     };
 
     fetchAllReserves();
-  }, [userInfo.id]);
+  
+  }, [decoded.id]);
 
   useEffect(() => {
     const filtered = reservations.filter(reservation => {
@@ -44,8 +49,7 @@ const Reservations = () => {
     <>
       <h1>Tus reservas</h1>
       <Filter onSearchChange={handleSearchChange} />
-      <ReservationList reservations={filterReservations} /> {/* Usar filterReservations aquí */}
-    </>
+      <ReservationList reservations={filterReservations} />    </>
   );
 };
 

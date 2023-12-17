@@ -1,10 +1,17 @@
 import {useState} from "react"
 import axios from "axios"
+import {jwtDecode} from "jwt-decode";
 
 
-const Comments = ({comments, setComments,userInfo, id_restaurant}) => {
+const Comments = ({comments, setComments, id_restaurant, userInfo}) => {
 
-  const [text, setText]=useState("")
+const [text, setText]=useState("");
+
+// const token = localStorage.getItem('token');
+// const decoded = jwtDecode(token);
+
+// console.log(decoded)
+  
 
 const handleInputChange= (event) => {
   setText(event.target.value)
@@ -12,21 +19,22 @@ const handleInputChange= (event) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+ 
     const commentData ={
       id_user: userInfo.id,
       id_restaurant:id_restaurant,
       text:text
     }
     try{
-      const response = await axios.post('http://localhost:3000/api/comment', commentData)   
+     
+      const response = await axios.post('http://localhost:3000/api/comment', commentData)
         setComments(prevComments => [...prevComments, response.data] )  
         setText("")
         console.log(response.data)
         alert("Comentario enviado")
       }
        catch(error) {
-    console.error("Error creating reservation:", error.response?.data || error.message);
+    console.error(console.error("Error creating comment:", error.response || error));
     alert(error.message)
   }
 }

@@ -3,7 +3,7 @@ import React from "react";
 const EditRestaurant = () => {
   return (
   <>
-  <form>
+  <form className="formAdmin">
   <label>Nombre</label>
   <input type="text" />
   <label>Dirección</label>

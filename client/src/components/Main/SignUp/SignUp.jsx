@@ -56,6 +56,7 @@ const handleSubmit = async (event) => {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid item xs={12} >
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin='normal'
                   autoComplete="given-name"
                   name="username"
@@ -68,6 +69,7 @@ const handleSubmit = async (event) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin='normal'
                   required
                   fullWidth
@@ -79,6 +81,7 @@ const handleSubmit = async (event) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin="normal"
                   required
                   fullWidth

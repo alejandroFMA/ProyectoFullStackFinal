@@ -26,6 +26,8 @@ const Home = () => {
     } 
 }, [setUserInfo]);
 
+console.log()
+
 
   useEffect(() => {
     fetchAllRestaurants();
@@ -44,9 +46,9 @@ const Home = () => {
   useEffect(() => {
     const filteredRestaurants = restaurants.filter((restaurant) => {
       return (
-        (!searchTerm || restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
-        (!foodType || restaurant.type === foodType) &&
-        (vegan === false || restaurant.vegan === vegan) 
+        (!searchTerm || restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) && //solo aparecer restaurantes incluyen
+        (!foodType || restaurant.type === foodType) && //solo aparecer restaurantes tipo de vovims
+        (vegan === false || restaurant.vegan === vegan) //solo aparecen restaurantes veganos true
       );
     });
 
@@ -64,7 +66,7 @@ const Home = () => {
         onSearchChange={handleSearch} 
         setFoodType={setFoodType} 
         isVegan={vegan} 
-        setIsVegan={setVegan}
+        setVegan={setVegan}
       />    
       <RestaurantList restaurants={filterRestaurants} />
       </>

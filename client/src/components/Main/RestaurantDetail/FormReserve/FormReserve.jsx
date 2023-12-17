@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 
 const FormReserve = ({userInfo, id_restaurant}) => {
+  // const token = localStorage.getItem('token');
 
   const [reserve, setReserve]= useState({
   reservation_datetime: null,
@@ -26,6 +27,8 @@ const FormReserve = ({userInfo, id_restaurant}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+   
+
     try {
       const reservationData = {
         id_user:userInfo.id,

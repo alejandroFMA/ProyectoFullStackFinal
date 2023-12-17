@@ -10,7 +10,6 @@ const RestaurantList = ({restaurants}) => {
   <section className="restaurantList">
   {restaurants.map(restaurant => (
     <RestaurantCard 
-      key={restaurant.id_restaurants}
       id={restaurant.id_restaurants}
       name={restaurant.name}
       address={restaurant.address}    

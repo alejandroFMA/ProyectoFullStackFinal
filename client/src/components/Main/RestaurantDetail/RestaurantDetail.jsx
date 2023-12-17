@@ -1,28 +1,26 @@
 import { jwtDecode } from "jwt-decode";
 import ReactStars from "react-rating-stars-component";
 import { useState, useEffect, useContext } from "react";
-import { UserInfoContext } from "../../../context/userInfoContext";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormReserve from "./FormReserve";
 import Comments from "./Comments";
 
 const RestaurantDetail = () => {
-  const { userInfo } = useContext(UserInfoContext);
-  // const [decodedToken, setDecodedToken] = useState("");
+  const [ userInfo, setUserInfo ] = useState(null);
   const [comments, setComments] = useState([]);
   const { id } = useParams();
-  console.log(id);
   const numberId = Number(id);
   const [restaurantDetail, setRestaurantDetail] = useState({});
-  const [ratings, setRatings] = useState()
+  // const [ratings, setRatings] = useState()
 
-  //   useEffect(() => {
-  //     const token = localStorage.getItem("token");
-  //     const decoded = jwtDecode(token);
-  //     setDecodedToken(decoded);
-  //     setUserInfo(decoded)
-  // }, [setUserInfo]);
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      const decoded = jwtDecode(token);
+      setUserInfo(decoded)
+  }, []);
+
+  console.log(userInfo)
 
   useEffect(() => {
     fetchRestaurantData();
