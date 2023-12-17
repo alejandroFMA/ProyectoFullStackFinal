@@ -41,8 +41,6 @@ const Home = () => {
     }
   };
 
-  console.log("Restaurants before filtering:", restaurants);
-
   useEffect(() => {
     const filteredRestaurants = restaurants.filter((restaurant) => {
       return (

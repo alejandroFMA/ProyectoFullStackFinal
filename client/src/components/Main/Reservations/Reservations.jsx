@@ -12,8 +12,6 @@ const Reservations = () => {
   const [filterReservations, setFilterReservations] = useState([]);
   const { userInfo } = useContext(UserInfoContext);
 
-   
-
 
   useEffect(() => {
     const fetchAllReserves = async () => {
