@@ -64,7 +64,6 @@ app.get('/google/callback', passport.authenticate('google', { failureRedirect: '
 
 
 
-
 //* Serve static assets in production, must be at this location of this file
 if (process.env.NODE_ENV === 'production') {
   //*Set static folder
