@@ -28,7 +28,7 @@ const handleInputChange= (event) => {
       text:text
     }
     try{
-     
+
       const response = await axios.post('http://localhost:3000/api/comment', commentData)
         setComments(prevComments => [...prevComments, response.data] )  
         setText("")
@@ -36,7 +36,7 @@ const handleInputChange= (event) => {
         alert("Comentario enviado")
       }
        catch(error) {
-    console.error(console.error("Error creating comment:", error.response || error));
+    console.error(console.error("Error creating comment:", error?.response || error));
     alert(error.message)
   }
 }
@@ -48,7 +48,7 @@ const handleInputChange= (event) => {
     <h4>Comentarios</h4>
     {comments && comments.map((comment) => (
         <article className="container2" key={comment.id}>
-          <p><b>@{comment.User.username}</b></p>
+          <p><b>@{comment.User?.username || "anónimo"}</b></p>
             <q>{comment.text}</q>
             <p>{format(new Date(comment.timestamp), 'dd-MM-yyyy HH:mm')}</p> 
         </article>

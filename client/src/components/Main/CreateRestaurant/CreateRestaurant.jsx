@@ -72,7 +72,7 @@ const CreateRestaurant = () => {
 
     <input type="submit" value="Crear"/>
 
-  </form>;
+  </form>
   </>)
 };
 

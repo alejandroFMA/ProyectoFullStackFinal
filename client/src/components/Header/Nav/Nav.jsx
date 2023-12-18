@@ -79,15 +79,15 @@ const Nav = () => {
       {!isAuthenticated ? (
         <>
         <li>
-        <button type="button" onClick={() => navigate('/signin')}>LOGIN</button>
+        <button type="button" className="signin" onClick={() => navigate('/signin')}>LOGIN</button>
         </li>
         <li>
-        <button type="button" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
+        <button type="button" className="signup" onClick={() => navigate('/signup')}>CREAR CUENTA</button>
         </li>
         </>
       ) : (
         <li>
-        <button type="button" onClick={handleLogout}>SALIR</button>
+        <button type="button" className="logout" onClick={handleLogout}>SALIR</button>
         </li>
       )}
      </ul>
