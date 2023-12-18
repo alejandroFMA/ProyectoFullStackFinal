@@ -1,0 +1,13 @@
+.formAdmin{
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: #e6e6e6;
+    padding: 40px;
+    &>input{
+        margin: 10px;
+
+    }
+
+    }

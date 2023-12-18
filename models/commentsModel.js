@@ -1,4 +1,4 @@
-const Comment = require('../schemas/sql_comments');
+const {Comment, User} = require('../schemas/association');
 
 const getComment = async (commentId) =>{
     try{
@@ -13,7 +13,13 @@ const getComment = async (commentId) =>{
 
 const getCommentsbyRestaurantID = async (restaurantId) =>{
     try{
-        const comment = await Comment.findAll( {where:{id_restaurant: restaurantId}});
+        const comment = await Comment.findAll( 
+            {where:{id_restaurant: restaurantId},
+            include: [
+                {
+                  model: User,
+                    attributes: ["username"]
+                }]});
         return comment || 'Comentarios no encontrado';
   
 } catch (error) {

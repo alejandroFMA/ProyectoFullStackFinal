@@ -7,6 +7,7 @@ require('dotenv').config();
 require('./config/google.config');
 require('./config/jwt.config')(passport);
 const { db } = require('./config/sql_connection');
+require('./schemas/association')
 const path = require('path')
 
 
@@ -64,13 +65,13 @@ app.get('/google/callback', passport.authenticate('google', { failureRedirect: '
 
 
 
-// //* Serve static assets in production, must be at this location of this file
-// if (process.env.NODE_ENV === 'production') {
-//   //*Set static folder
-//   app.use(express.static('client/build'));
+//* Serve static assets in production, must be at this location of this file
+if (process.env.NODE_ENV === 'production') {
+  //*Set static folder
+  app.use(express.static('client/dist'));
   
-//   app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
-// }
+  app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'dist','index.html')));
+}
 
 app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}`)

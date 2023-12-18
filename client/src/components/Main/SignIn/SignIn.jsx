@@ -64,16 +64,18 @@ const defaultTheme = createTheme();
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+            sx={{backgroundColor: '#f0f0f0'}}
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
             />
             <TextField
+              sx={{backgroundColor: '#f0f0f0'}}
               margin="normal"
               required
               fullWidth

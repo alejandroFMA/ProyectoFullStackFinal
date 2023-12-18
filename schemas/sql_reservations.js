@@ -25,7 +25,7 @@ const Reservation = db.define(
     },
     reservation_datetime: {
       field: "reservation_datetime",
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
     },
     customers: {
@@ -40,7 +40,8 @@ const Reservation = db.define(
     }
   },
   {
-    sequelize: db, 
+    sequelize: db,
+    modelName:"Reservation", 
     tableName: "reservations",
     timestamps: false,
   }

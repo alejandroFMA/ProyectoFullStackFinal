@@ -12,16 +12,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import{ useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const defaultTheme = createTheme();
 
 const signUp = () =>{
-const navigate = useNavigate;
+
+  const navigate = useNavigate();
 
 const handleSubmit = async (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
-  
+
+
   try {
     await axios.post('http://localhost:3000/signup', {
       email: data.get('email'),
@@ -36,6 +37,7 @@ const handleSubmit = async (event) => {
 };
 
   return (
+    <form className='signup-form'>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -56,6 +58,7 @@ const handleSubmit = async (event) => {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid item xs={12} >
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin='normal'
                   autoComplete="given-name"
                   name="username"
@@ -68,6 +71,7 @@ const handleSubmit = async (event) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin='normal'
                   required
                   fullWidth
@@ -75,10 +79,13 @@ const handleSubmit = async (event) => {
                   label="Email"
                   name="email"
                   autoComplete="email"
+                  floatingLabelStyle={{color: '#000000' }}
+                  inputProps={{ color: 'black' } }
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                   sx={{backgroundColor: '#f0f0f0'}}
                   margin="normal"
                   required
                   fullWidth
@@ -108,6 +115,7 @@ const handleSubmit = async (event) => {
         </Box>
       </Container>
     </ThemeProvider>
+    </form>
   );
 }
 

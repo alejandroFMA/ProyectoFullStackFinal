@@ -1,7 +1,11 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-const db = new Sequelize(`postgres://${process.env.SQL_USERNAME}:${process.env.SQL_PASSWORD}@${process.env.SQL_HOST}/${process.env.SQL_DATABASE}?ssl=true`);
+const db = new Sequelize(`postgres://${process.env.SQL_USERNAME}:${process.env.SQL_PASSWORD}@${process.env.SQL_HOST}/${process.env.SQL_DATABASE}?ssl=true`, {
+    logging: console.log, // Esta línea activa los logs de las consultas SQL
+})
+
+
 
 const connectSQL = async () => {
     try {

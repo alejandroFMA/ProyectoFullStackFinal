@@ -7,8 +7,8 @@ const secret = process.env.JWT_SECRET;
 const verifyToken = express.Router();
 
 verifyToken.use((req, res, next) => {
-  const token = req.cookies['access-token'];
-
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]
   if (!token) {
     return res.status(401).send('No token provided, please login');
   }

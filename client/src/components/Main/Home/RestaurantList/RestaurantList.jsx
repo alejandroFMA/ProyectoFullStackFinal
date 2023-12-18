@@ -1,7 +1,8 @@
 import React from "react";
 import RestaurantCard from "./RestaurantCard"
+import { v4 as uuidv4 } from "uuid";
 
-const RestaurantList = ({restaurants}) => {
+const RestaurantList = ({restaurants, setRestaurants}) => {
 
   console.log(restaurants)
   
@@ -16,7 +17,8 @@ const RestaurantList = ({restaurants}) => {
       address={restaurant.address}    
       type={restaurant.type}
       vegan={restaurant.vegan}
-      rating={restaurant.rating}/>
+      rating={restaurant.rating}
+      setRestaurants={setRestaurants}/>
   ))}
   </section>)
  

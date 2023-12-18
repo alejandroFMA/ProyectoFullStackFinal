@@ -1,36 +1,52 @@
-const Form = ({onSearchChange, setFoodType, vegan, setVegan}) => {
+import Switch from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearchChange();
-  };
+const Form = ({ onSearchChange, setFoodType, vegan, setVegan }) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onSearchChange();
+  // };
 
   return (
     <>
-      <form>
+      <form className="filtroHome">
         <input
           type="text"
-          placeholder="Buscar restaurantes"
-          onChange={(e) => onSearchChange(e.target.value)}
+          className="form__field"
+          placeholder="Buscar restaurantes..."
+          name="name"
+          required
+          onChange={(event) => onSearchChange(event.target.value)}
         />
-        <select onChange={(e) => setFoodType(e.target.value)}>
-          <option value="">Todos los Tipos</option>
-          <option value="Americana">Americana</option>
-          <option value="Italiana">Italiana</option>
-          <option value="Española">Española</option>
-          <option value="Internacional">Internacional</option>
-          <option value="China">China</option>
-        </select>
-        <label>
-          Vegano:
-          <input
-            type="checkbox"
-            checked={vegan}
-            onChange={(e) => setVegan(e.target.checked)}
-          />
-        </label>
 
-        <button type="submit" onSubmit={handleSubmit}>Buscar</button>
+        <div className="filtroComida">
+          <select onChange={(event) => setFoodType(event.target.value)}>
+            {/* pendiente realizar fetch de types e restaurant para mapear select con todos los types*/}
+            <option value="">Todos los Tipos</option>
+            <option value="Americana">Americana</option>
+            <option value="Italiana">Italiana</option>
+            <option value="Española">Española</option>
+            <option value="Internacional">Internacional</option>
+            <option value="China">China</option>
+            <option value="Japonesa">Japonesa</option>
+            <option value="Mexicana">Mexicana</option>
+          </select>
+
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="center"
+          >
+            <h1>🍔</h1>
+            <Switch
+              inputProps={{ "aria-label": "ant design" }}
+              type="checkbox"
+              checked={vegan}
+              onChange={(event) => setVegan(event.target.checked)}
+            />
+            <h1>🥗</h1>
+          </Stack>
+        </div>
       </form>
     </>
   );

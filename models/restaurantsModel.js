@@ -1,7 +1,4 @@
-const Restaurant = require('../schemas/sql_restaurants');
-const Reservation = require('../schemas/sql_reservations')
-const Comment =require('../schemas/sql_reservations')
-
+const { Reservation, Restaurant, Comment } = require("../schemas/association");
 
 const getRestaurant = async (restaurantId) => {
          try{
@@ -67,11 +64,9 @@ const deleteRestaurant = async (restaurantId) => {
         await Comment.destroy({ where: { id_restaurant: restaurantId } });
         await Reservation.destroy({ where: { id_restaurant: restaurantId } });
         //se borran todas las filas dependientes de esta tabla
-        const rows = await Restaurant.destroy({ where: { id_restaurant: restaurantId } }); 
+         await Restaurant.destroy({ where: { id_restaurants: restaurantId } }); 
 
-        if (rows === 0) {
-            throw new Error('Restaurante no encontrado');
-        }
+        
 
         return { message: 'Restaurante borrado', restaurantId: restaurantId };
     } catch (error) {

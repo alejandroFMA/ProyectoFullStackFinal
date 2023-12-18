@@ -5,7 +5,7 @@ const verifyToken = require("../middlewares/verifyToken")
 
 router.get('/comment/:id', comment_controller.getComment);
 router.get('/comment/restaurant/:id', comment_controller.getCommentsbyRestaurantID);
-router.post('/comment',comment_controller.createComment);
+router.post('/comment', comment_controller.createComment);
 router.put('/comment/:id', comment_controller.updateComment);
-router.delete('/comment/:id', verifyToken, comment_controller.deleteComment);
+router.delete('/comment/:id', comment_controller.deleteComment);
 module.exports = router
