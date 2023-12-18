@@ -9,7 +9,7 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "deploy":  "concurrently \"npm run server\" \"npm run client\""
+    "deploy": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
