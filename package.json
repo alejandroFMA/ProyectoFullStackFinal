@@ -9,7 +9,6 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-    
   },
   "repository": {
     "type": "git",
@@ -34,6 +33,7 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.11.3",
+    "react-spinners": "^0.13.8",
     "sequelize": "^6.35.1"
   },
   "devDependencies": {

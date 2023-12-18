@@ -41,6 +41,7 @@ const CreateRestaurant = () => {
 
   return( 
   <>
+  
   <form className="formAdmin" onChange={handleInputChange} onSubmit={handleSubmit} >
     <h1>Nuevo restaurante</h1>
     <p>Introduce los datos para crear un nuevo restaurante.</p>
@@ -85,7 +86,7 @@ const CreateRestaurant = () => {
           </Stack>
 
 
-    <input type="submit" value="Crear"/>
+    <input className="create-button"type="submit" value="Crear"/>
 
   </form>
   </>)
