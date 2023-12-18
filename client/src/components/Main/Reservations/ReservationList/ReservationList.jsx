@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 const ReservationList = ({ reservations, setReservation }) => {
 
   const deleteReservation = (id) => {
-    axios.delete(`http://localhost:3000/api/reservation/${id}`)
+    axios.delete(`/api/reservation/${id}`)
       .then(response => {
         console.log('Reserva eliminada', response);
       })

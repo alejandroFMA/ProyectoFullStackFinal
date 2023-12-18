@@ -24,7 +24,7 @@ const handleSubmit = async (event) => {
 
 
   try {
-    await axios.post('http://localhost:3000/signup', {
+    await axios.post('/signup', {
       email: data.get('email'),
       password: data.get('password'),
       username: data.get('username'),

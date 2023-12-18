@@ -29,7 +29,7 @@ const handleInputChange= (event) => {
     }
     try{
 
-      const response = await axios.post('http://localhost:3000/api/comment', commentData)
+      const response = await axios.post('/api/comment', commentData)
         setComments(prevComments => [...prevComments, response.data] )  
         setText("")
         console.log(response.data)

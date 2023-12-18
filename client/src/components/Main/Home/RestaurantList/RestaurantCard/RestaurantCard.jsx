@@ -25,7 +25,7 @@ const RestaurantCard = ({ id, name, vegan, type, setRestaurants }) => {
   const handleDelete = () => {
 
     try{
-    axios.delete(`http://localhost:3000/api/${restaurantDetailUrl}`)
+    axios.delete(`/api/${restaurantDetailUrl}`)
     .then(response => {
       console.log('Restaurante eliminada', response);
       setRestaurants(currentRestaurants => currentRestaurants.filter(restaurant => restaurant.id_restaurants !== id))
