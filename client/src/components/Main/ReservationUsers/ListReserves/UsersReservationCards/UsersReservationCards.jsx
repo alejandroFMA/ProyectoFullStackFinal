@@ -37,7 +37,10 @@ const UsersReservationCards = ({
       console.log("Estado actualizado", response.data)
       alert("Estado actualizado: " + response.data.status)
   
-      setAllReservations(prevReserves => [...prevReserves]);
+      setAllReservations(prevReserves =>
+        prevReserves.map(reserve =>
+          reserve.id === id ? { ...reserve, status: estado } : reserve
+        ));
     } catch (error) {
       console.error("Error al editar la reserva" + error);
     }

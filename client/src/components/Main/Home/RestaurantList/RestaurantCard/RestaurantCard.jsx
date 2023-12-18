@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
-const RestaurantCard = ({ key, id, name, vegan, type }) => {
+const RestaurantCard = ({ id, name, vegan, type, setRestaurants }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -27,7 +27,8 @@ const RestaurantCard = ({ key, id, name, vegan, type }) => {
     try{
     axios.delete(`http://localhost:3000/api/${restaurantDetailUrl}`)
     .then(response => {
-      console.log('Reserva eliminada', response);
+      console.log('Restaurante eliminada', response);
+      setRestaurants(currentRestaurants => currentRestaurants.filter(restaurant => restaurant.id_restaurants !== id))
     })
     .catch(error => { 
       console.error('Error al eliminar la reserva', error);

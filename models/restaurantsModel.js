@@ -1,7 +1,4 @@
-const Restaurant = require('../schemas/sql_restaurants');
-const Reservation = require('../schemas/sql_reservations')
-const Comment =require('../schemas/sql_reservations')
-
+const { Reservation, Restaurant, Comment } = require("../schemas/association");
 
 const getRestaurant = async (restaurantId) => {
          try{

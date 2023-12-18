@@ -67,7 +67,7 @@ const Home = () => {
         isVegan={vegan} 
         setVegan={setVegan}
       />    
-      <RestaurantList restaurants={filterRestaurants} />
+      <RestaurantList restaurants={filterRestaurants} setRestaurants={setRestaurants}/>
       </>
   )
   }  

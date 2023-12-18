@@ -10,11 +10,11 @@ Comment.belongsTo(User, {onDelete:'CASCADE' ,foreignKey: 'id_user' });
 User.hasMany(Reservation, {onDelete:'CASCADE' ,foreignKey: 'id_user' });
 Reservation.belongsTo(User, {onDelete:'CASCADE' ,foreignKey: 'id_user' });
 
-Restaurant.hasMany(Comment, {onDelete:'CASCADE',foreignKey: 'id_user' });
-Comment.belongsTo(Restaurant, {onDelete:'CASCADE' ,foreignKey: 'id_user' });
+Restaurant.hasMany(Comment, {onDelete:'CASCADE',foreignKey: 'id_restaurant' });
+Comment.belongsTo(Restaurant, {onDelete:'CASCADE' ,foreignKey: 'id_restaurant' });
 
-Reservation.belongsTo(Restaurant, {onDelete:'CASCADE' ,foreignKey: 'id_user' });
-Restaurant.hasMany(Reservation, {onDelete:'CASCADE',foreignKey: 'id_user' });
+Reservation.belongsTo(Restaurant, {onDelete:'CASCADE' ,foreignKey: 'id_restaurant' });
+Restaurant.hasMany(Reservation, {onDelete:'CASCADE',foreignKey: 'id_restaurant' });
 
 module.exports = {
     User,
