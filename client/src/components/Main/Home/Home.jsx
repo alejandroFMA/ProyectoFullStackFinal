@@ -26,8 +26,6 @@ const Home = () => {
     } 
 }, [setUserInfo]);
 
-console.log()
-
 
   useEffect(() => {
     fetchAllRestaurants();
@@ -62,6 +60,7 @@ console.log()
 
   return (
       <>
+      <h3>Encuentra tu nuevo restaurante favorito</h3>
       <Form 
         onSearchChange={handleSearch} 
         setFoodType={setFoodType} 

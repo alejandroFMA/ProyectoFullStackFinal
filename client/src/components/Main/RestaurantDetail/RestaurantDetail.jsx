@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import ReactStars from "react-rating-stars-component";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FormReserve from "./FormReserve";
@@ -14,6 +14,8 @@ const RestaurantDetail = () => {
   const [restaurantDetail, setRestaurantDetail] = useState({});
   // const [ratings, setRatings] = useState()
 
+  console.log(numberId)
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -21,8 +23,6 @@ const RestaurantDetail = () => {
       setUserInfo(decoded);
     }
   }, []);
-
-  console.log(userInfo)
 
   useEffect(() => {
     fetchRestaurantData();
@@ -56,8 +56,9 @@ const RestaurantDetail = () => {
       <section className="detail-page">
         <article className="detail-page-restaurant">
           <h1>{restaurantDetail.name}</h1>
-          <p>Dirección:{restaurantDetail.address}</p>
+          <address>{restaurantDetail.address}</address>
           <p>Tipo de cocina: {restaurantDetail.type}</p>
+          <div className="rating-div">
           <ReactStars
                  size={24}
                  isHalf={true}
@@ -67,6 +68,8 @@ const RestaurantDetail = () => {
                  activeColor="#ffd700"
               />
           <p>({restaurantDetail.rating})</p>
+          </div>
+
 
           <div className="line"></div>
 

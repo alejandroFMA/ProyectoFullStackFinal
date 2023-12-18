@@ -11,7 +11,9 @@ const [text, setText]=useState("");
 // const decoded = jwtDecode(token);
 
 // console.log(decoded)
-  
+
+
+console.log(comments)
 
 const handleInputChange= (event) => {
   setText(event.target.value)
@@ -44,8 +46,8 @@ const handleInputChange= (event) => {
     
     <section className="comments-display">
     <h4>Comentarios</h4>
-    {comments.map(comment => (
-        <article key={comment.id}>
+    {comments && comments.map((comment) => (
+        <article className="container2" key={comment.id}>
           <p><b>@{comment.User.username}</b></p>
             <q>{comment.text}</q>
             <p>{format(new Date(comment.timestamp), 'dd-MM-yyyy HH:mm')}</p> 

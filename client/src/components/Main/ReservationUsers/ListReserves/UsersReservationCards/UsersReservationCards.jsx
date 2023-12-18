@@ -3,7 +3,6 @@ import { format } from "date-fns";
 import axios from "axios";
 import {ReservationsUsersContext} from "../../../../../context/reservationsUsersContext";
 
-
 const UsersReservationCards = ({
   id,
   name,
@@ -13,8 +12,7 @@ const UsersReservationCards = ({
   date,
   customers,
   status,
-  onDelete,
-  fetch
+  onDelete
 }) => {
   const {setAllReservations} = useContext(ReservationsUsersContext)
 
@@ -23,16 +21,10 @@ const UsersReservationCards = ({
   const handleDelete = async () => {
     onDelete(id);
     alert("¡Reserva eliminada!");
-    const fetchNuevo = await fetch()
-    setAllReservations(fetchNuevo);
+    setAllReservations(prevReserves => [...prevReserves]);
   };
 
-  const handleStatus = (event) => {
-
-    setEstado(event.target.value)
-
-  }
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -44,12 +36,18 @@ const UsersReservationCards = ({
       );
       console.log("Estado actualizado", response.data)
       alert("Estado actualizado: " + response.data.status)
-      const fetchNuevo = await fetch()
-      setAllReservations(fetchNuevo);
+  
+      setAllReservations(prevReserves => [...prevReserves]);
     } catch (error) {
       console.error("Error al editar la reserva" + error);
     }
   };
+
+  const handleStatus = (event) => {
+
+    setEstado(event.target.value)
+
+  }
 
   return (
     <article className="reservationCard">

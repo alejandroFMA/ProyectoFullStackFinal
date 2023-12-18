@@ -50,12 +50,15 @@ const Nav = () => {
           onClick={scrollToTop}
           >Home</Link>
         </li>
+        {isAuthenticated ? (
         <li className="nav-link">
           <Link to="/reservations" 
           className="nav-link"
           onClick={scrollToTop}
           >Reservas</Link>
-        </li>
+        </li>) : (null)}
+
+
         {isAdmin ? (
           <>
         <li className="nav-link">

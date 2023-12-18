@@ -15,6 +15,7 @@ const Reservations = () => {
   const decoded = jwtDecode(token);
 
   console.log(decoded)
+  console.log(reservations)
 
   useEffect(() => {
 
@@ -49,7 +50,7 @@ const Reservations = () => {
     <>
       <h1>Tus reservas</h1>
       <Filter onSearchChange={handleSearchChange} />
-      <ReservationList reservations={filterReservations} />    </>
+      <ReservationList reservations={filterReservations}  setReservations={setReservations}/>    </>
   );
 };
 

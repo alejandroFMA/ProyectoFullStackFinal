@@ -13,6 +13,7 @@ const FormReserve = ({ userInfo, id_restaurant }) => {
     reservation_datetime: null,
     people: "",
   });
+  console.log(id_restaurant)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -43,10 +44,8 @@ const FormReserve = ({ userInfo, id_restaurant }) => {
         people: "",
       });
       alert("reserva realizada");
-      // POP UP DE RESERVA OK
     } catch (error) {
       console.error(
-        "Error creating reservation:",
         error.response?.data || error.message
       );
       alert(error.message);
@@ -55,8 +54,7 @@ const FormReserve = ({ userInfo, id_restaurant }) => {
   };
 
   return (
-    <>
-      
+    <>   
       <form className="reserve-form" onSubmit={handleSubmit}>
         <div className="inputs-reserve">
         <h1>Haz tu reserva ahora</h1>
@@ -75,7 +73,7 @@ const FormReserve = ({ userInfo, id_restaurant }) => {
             />
           </LocalizationProvider>
 
-          <div class="quantity">
+          <div className="quantity">
             <input
               type="number"
               className="inp-number"

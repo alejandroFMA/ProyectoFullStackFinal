@@ -30,7 +30,7 @@ const CreateRestaurant = () => {
         alert("Restaurante creado")
         // POP UP DE RESERVA OK
       } catch (error) {
-        console.error("Error creating reservation:", error.message);
+        console.error("Error creating reservation:"+ error, error.message);
         alert(error.message)
         // POP UP DE ERROR
       }
@@ -41,7 +41,7 @@ const CreateRestaurant = () => {
   <>
   <form className="formAdmin" onChange={handleInputChange} onSubmit={handleSubmit} >
     <h1>Nuevo restaurante</h1>
-    <p>Introduce los datos para crear un nuevo restaurante de cero.</p>
+    <p>Introduce los datos para crear un nuevo restaurante.</p>
     <input 
     type="text"
     placeholder="Nombre del restaurante"

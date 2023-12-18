@@ -4,10 +4,59 @@
     padding:2rem;
     background-color: #e6e6e6;
     margin: 20px;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
     border-radius: 5px;
-    
+    border:  3px solid black;
+     
+}
 
+.optionsAdmin{
+  display: flex;
+  margin-top: 40px;
+}
+
+.details-btn{
+  background-color: #0fd208;
+  border-radius: 10px;
+  padding: 8px;
+ margin-top: 15px;
+ margin-left: 50px
+}
+
+.editar-btn {
+  background-color: #f6c30c;
+  border-radius: .5rem;
+  color: #111827;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #f9fafb;
+}
+
+button:focus {
+  outline: 2px solid rgba(0,0,0,0.1);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 
@@ -48,7 +97,7 @@ $delete-red: red;
 
 .btn-delete {
   font-size: 16px;
-  color: red;
+  background-color: red;
   
   >.mdi-delete-empty {
     display: none;
@@ -65,22 +114,4 @@ $delete-red: red;
       display: none;
     }
   }
-}
-
-
-reservation-card-button-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.reservation-card-button-edit, .reservation-card-button-delete {
-  background-color: red;
-  padding: 10px 20px;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
