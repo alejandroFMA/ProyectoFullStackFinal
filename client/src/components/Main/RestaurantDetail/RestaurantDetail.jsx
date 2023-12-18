@@ -14,10 +14,12 @@ const RestaurantDetail = () => {
   const [restaurantDetail, setRestaurantDetail] = useState({});
   // const [ratings, setRatings] = useState()
 
-    useEffect(() => {
-      const token = localStorage.getItem("token");
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
       const decoded = jwtDecode(token);
-      setUserInfo(decoded)
+      setUserInfo(decoded);
+    }
   }, []);
 
   console.log(userInfo)
@@ -52,7 +54,7 @@ const RestaurantDetail = () => {
   return (
     <>
       <section className="detail-page">
-        <article>
+        <article className="detail-page-restaurant">
           <h1>{restaurantDetail.name}</h1>
           <p>Dirección:{restaurantDetail.address}</p>
           <p>Tipo de cocina: {restaurantDetail.type}</p>
@@ -65,14 +67,22 @@ const RestaurantDetail = () => {
                  activeColor="#ffd700"
               />
           <p>({restaurantDetail.rating})</p>
-        </article>
+
+          <div className="line"></div>
+
         <Comments
           userInfo={userInfo}
           comments={comments}
           setComments={setComments}
           id_restaurant={numberId}
         />
-        <FormReserve id_restaurant={numberId} userInfo={userInfo} />
+        </article>
+        {userInfo && <FormReserve id_restaurant={numberId} userInfo={userInfo} />}
+
+          {!userInfo && (
+            <b>Debes iniciar sesión para poder comentar y/o reservar.</b>
+          )}
+        {/* <FormReserve id_restaurant={numberId} userInfo={userInfo} /> */}
       </section>
     </>
   );

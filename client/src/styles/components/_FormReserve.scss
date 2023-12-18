@@ -1,0 +1,31 @@
+.reserve-form{
+
+display: flex;
+flex-direction: column;
+}
+
+.inp-number{
+    margin-top: 8px;
+    height: 60px;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.reserve-button{
+        padding: 15px 40px;
+        background: #000;
+        border:0;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: helvetica;
+        font-size: 12px;
+        letter-spacing: 3px;
+        position: relative;
+        transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        cursor: pointer;
+        display: block;
+        margin: 10px auto;
+
+}

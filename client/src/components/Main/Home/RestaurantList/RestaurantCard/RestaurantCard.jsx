@@ -46,10 +46,11 @@ useEffect(() => {
           >Editar</Link>
         </button>
 
-        <button    
-        type="button"      
-          >Borrar
-         </button>       
+        <button class="btn btn-delete">
+            <span class="mdi mdi-delete mdi-24px"></span>
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Borrar</span>
+          </button>       
         </div>
         </>)
         : (null)}

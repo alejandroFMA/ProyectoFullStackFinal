@@ -1,6 +1,6 @@
 import {useState} from "react"
 import axios from "axios"
-import {jwtDecode} from "jwt-decode";
+import { format } from 'date-fns'
 
 
 const Comments = ({comments, setComments, id_restaurant, userInfo}) => {
@@ -40,19 +40,26 @@ const handleInputChange= (event) => {
 }
 
 
-  return (<>
-    <section>
+  return (<>  
+    
+    <section className="comments-display">
+    <h4>Comentarios</h4>
     {comments.map(comment => (
         <article key={comment.id}>
-          <p><q>{comment.text}</q> - <b>{comment.User.username}</b></p>
+          <p><b>@{comment.User.username}</b></p>
+            <q>{comment.text}</q>
+            <p>{format(new Date(comment.timestamp), 'dd-MM-yyyy HH:mm')}</p> 
         </article>
       ))}
-    </section>
 
-    <form onSubmit={handleSubmit}>
-      <textarea placeholder="Escribe tu comentario" onChange={handleInputChange} value={text}></textarea> 
-      <button type="submit">Enviar</button>
+ 
+    </section>
+    <form className="comment-txt-area"onSubmit={handleSubmit}>
+      <textarea placeholder="Escribe tu comentario..." onChange={handleInputChange} value={text} cols="40" rows="5"></textarea> 
+      <button className= "btn-comment" type="submit">Enviar</button>
     </form>
+
+    
   </>);
 };
 

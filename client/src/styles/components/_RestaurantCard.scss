@@ -10,13 +10,7 @@
 
 }
 
-.optionsAdmin{
-display: flex;
-margin-top: 40px;
-border: 3px solid #73AD21;
-width:fit-content;
 
-}
 
 // @media (min-width:768px){
 //     .restaurantList{
@@ -27,3 +21,66 @@ width:fit-content;
 //     }
 
 // }
+
+
+$delete-red: red;
+
+
+.btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 1px solid lighten(gray, 24%);
+  height: 48px;
+  padding: 0 24px 0 16px;
+  letter-spacing: .25px;
+  border-radius: 24px;
+  cursor: pointer;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  .mdi {
+    margin-right: 8px;
+  }
+}
+
+.btn-delete {
+  font-size: 16px;
+  color: red;
+  
+  >.mdi-delete-empty {
+    display: none;
+  }
+  
+  &:hover {
+    background-color: lighten(red, 48%);
+    
+    >.mdi-delete-empty {
+      display: block;
+    }
+    
+    >.mdi-delete {
+      display: none;
+    }
+  }
+}
+
+
+reservation-card-button-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reservation-card-button-edit, .reservation-card-button-delete {
+  background-color: red;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

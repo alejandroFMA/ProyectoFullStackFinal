@@ -18,6 +18,13 @@ const ReservationCard = ({id, name, address, date, customers, status, onDelete }
       <p className="reservation-text-bodys">Estado: {status}</p> 
       </div>      
       <button className="reservation-card-button" type="button" onClick={handleDelete}>Borrar</button>
+      <button class="btn btn-delete"
+           onClick={handleDelete}
+          >
+            <span class="mdi mdi-delete mdi-24px"></span>
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Borrar</span>
+          </button>     
     </article>
   );
 };
