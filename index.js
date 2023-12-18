@@ -11,7 +11,7 @@ require('./schemas/association')
 const path = require('path')
 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 //middlewares
 
