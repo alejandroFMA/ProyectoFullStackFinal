@@ -32,7 +32,7 @@ const RestaurantDetail = () => {
   const fetchRestaurantData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/restaurant/${numberId}`
+        `/api/restaurant/${numberId}`
       );
       setRestaurantDetail(response.data);
     } catch (error) {
@@ -43,7 +43,7 @@ const RestaurantDetail = () => {
   const fetchCommentsByRestaurantId = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/comment/restaurant/${numberId}`
+        `/api/comment/restaurant/${numberId}`
       );
       setComments(response.data);
     } catch (error) {

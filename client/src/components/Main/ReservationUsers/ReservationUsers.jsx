@@ -13,7 +13,7 @@ const ReservationUsers = () => {
 
   const fetchAllReservations = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/all/reservation');
+      const response = await axios.get('/api/all/reservation');
      console.log(response.data)
      const usersReservations= response.data
      setAllReservations(usersReservations)

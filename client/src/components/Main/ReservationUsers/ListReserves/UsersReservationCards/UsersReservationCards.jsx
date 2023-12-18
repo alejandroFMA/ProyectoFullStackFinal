@@ -29,7 +29,7 @@ const UsersReservationCards = ({
     event.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/reservation/${id}`,
+        `/api/reservation/${id}`,
         {
           status: estado,
         }       

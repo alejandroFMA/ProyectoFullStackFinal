@@ -22,7 +22,7 @@ const Reservations = () => {
     const fetchAllReserves = async () => {
       
       try {
-        const response = await axios.get(`http://localhost:3000/api/reservation/user/${decoded.id}`);
+        const response = await axios.get(`/api/reservation/user/${decoded.id}`);
         setReservations(response.data);
         setFilterReservations(response.data);
       } catch (error) {

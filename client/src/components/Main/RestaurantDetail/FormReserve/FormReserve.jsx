@@ -35,7 +35,7 @@ const FormReserve = ({ userInfo, id_restaurant }) => {
         customers: parseInt(reserve.people, 10),
       };
       const response = await axios.post(
-        "http://localhost:3000/api/reservation",
+        "/api/reservation",
         reservationData
       );
       console.log(response.data);

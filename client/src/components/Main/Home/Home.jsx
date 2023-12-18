@@ -33,7 +33,7 @@ const Home = () => {
 
   const fetchAllRestaurants = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/restaurant');
+      const response = await axios.get('/api/restaurant');
       setRestaurants(response.data);
       setFilterRestaurants(response.data);
     } catch (error) {
