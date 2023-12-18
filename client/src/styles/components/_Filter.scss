@@ -1,19 +1,4 @@
-.formAdmin{
-
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background-color: #e6e6e6;
-    padding: 40px;
-    &>input{
-        margin: 10px;
-
-    
-
-    }
-
-.create-input{
-
+.filtro-reservas{
     width: 300px;
     padding: 8px;
     margin: 10px;
@@ -27,16 +12,14 @@
     
     }
     
-    .create-input:hover{
+    .filtro-reservas:hover{
         box-shadow: 0 0 5pt 0.5pt #565252;
     
     }
     
     
-    .create-input:focus{
+    .filtro-reservas:focus{
     box-shadow: 0 0 5pt 2pt #565252;
     outline-width: 0px;
     }
-
-
-}
+    
