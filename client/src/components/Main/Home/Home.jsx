@@ -5,6 +5,8 @@ import Form from './Form';
 import RestaurantList from './RestaurantList';
 import { RestaurantContext } from '../../../context/restaurantContext';
 import {UserInfoContext} from "../../../context/userInfoContext";
+import Cliploader from "react-spinners/MoonLoader";
+
 
 
 const Home = () => {
@@ -15,7 +17,8 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [foodType, setFoodType] = useState('');
   const [vegan, setVegan] = useState(false);
-
+  const [loading, setLoading] = useState(true)
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -36,8 +39,11 @@ const Home = () => {
       const response = await axios.get('/api/restaurant');
       setRestaurants(response.data);
       setFilterRestaurants(response.data);
+      setLoading(false)
     } catch (error) {
       console.error("Error fetching data: ", error);
+      setLoading(false)
+
     }
   };
 
@@ -66,8 +72,21 @@ const Home = () => {
         setFoodType={setFoodType} 
         isVegan={vegan} 
         setVegan={setVegan}
-      />    
-      <RestaurantList restaurants={filterRestaurants} setRestaurants={setRestaurants}/>
+      />  
+      { loading ? (<div>
+        <Cliploader 
+        loading={loading}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        color={"#1fcceb"} 
+        className="spinner" 
+        />
+      </div>
+
+      ) : (
+        <RestaurantList restaurants={filterRestaurants} setRestaurants={setRestaurants} />
+      )}
       </>
   )
   }  

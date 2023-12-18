@@ -52,7 +52,8 @@ const UsersReservationCards = ({
   }
 
   return (
-    <article className="reservationCard">
+    <article className="reservationUserCard">
+      <b>Reserva #{id}</b>
       <p>{name}</p>
       <p>{address}</p>
       <p>{email}</p>
@@ -62,19 +63,32 @@ const UsersReservationCards = ({
       <p>Estado: {status}</p>
 
       <form className="changeStatus" onSubmit={handleSubmit}>
-        <label htmlFor="status">Cambiar estado</label>
+       
         <select name="status" value={estado} onChange={handleStatus}>
           <option></option>
           <option value="Anulada">Anulada</option>
           <option value="Pendiente">Pendiente</option>
           <option value="Confirmada">Confirmada</option>
         </select>
-        <input type="submit" value="Cambiar Estado" />
+      
+
+        <div className="buttons-user-reservation">
+
+        <input type="submit" className="cambiar-estado" value="Cambiar Estado" />
+        <button class="btn btn-delete"
+           onClick={handleDelete}
+          >
+            <span class="mdi mdi-delete mdi-24px"></span>
+            <span class="mdi mdi-delete-empty mdi-24px"></span>
+            <span>Borrar</span>
+          </button>
+          </div>    
       </form>
 
-      <button type="button" onClick={handleDelete}>
-        Borrar reserva
-      </button>
+       
+
+
+
     </article>
   );
 };

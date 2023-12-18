@@ -58,18 +58,27 @@ app.use('/', authRoute);
 app.get("/auth/google", passport.authenticate("google", { scope: ['email', 'profile'], prompt: "select_account" }));
 app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/auth/failed' }), auth.googleAuth);
 
-// serve static assets in production
+
+
+
+//* Serve static assets in production, must be at this location of this file
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/dist'));
   
   app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'dist','index.html')));
 }
 
+
+
+
+
 // error handling
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 app.use('*',error404)
 
 // start server
+
 app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}`);
 });
