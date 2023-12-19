@@ -7,14 +7,17 @@ import { UserInfoContext } from "../../client/src/context/userInfoContext";
 import {ReservationsUsersContext} from "./context/reservationsUsersContext"
 import { BrowserRouter } from "react-router-dom";
 import "./styles/styles.scss"
+import axios from "axios";
 
 
 import "./App.css";
+
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [userInfo, setUserInfo] = useState({})
   const [allReservations, setAllReservations] = useState([])
+  axios.defaults.baseURL="http://localhost:3000"
   return (
     <>
       <BrowserRouter>

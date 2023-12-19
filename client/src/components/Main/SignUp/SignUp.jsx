@@ -18,16 +18,20 @@ const signUp = () =>{
 
   const navigate = useNavigate();
 
-const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
+
+  console.log(data)
 
 
   try {
     await axios.post('/signup', {
-      email: data.get('email'),
-      password: data.get('password'),
-      username: data.get('username'),
+
+      username: data.get("username"),
+      email: data.get("email"),
+      password: data.get("password"),
+     
     });
 
     navigate('/signin');
@@ -37,7 +41,7 @@ const handleSubmit = async (event) => {
 };
 
   return (
-    <form className='signup-form'>
+  
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -115,7 +119,6 @@ const handleSubmit = async (event) => {
         </Box>
       </Container>
     </ThemeProvider>
-    </form>
   );
 }
 
