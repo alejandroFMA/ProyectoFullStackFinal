@@ -17,7 +17,7 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [userInfo, setUserInfo] = useState({})
   const [allReservations, setAllReservations] = useState([])
-  axios.defaults.baseURL="http://localhost:3000"
+  // axios.defaults.baseURL="http://localhost:3000"
   return (
     <>
       <BrowserRouter>
