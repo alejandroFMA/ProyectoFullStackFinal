@@ -10,6 +10,9 @@ import Cliploader from "react-spinners/MoonLoader";
 
 
 const Home = () => {
+
+
+
   const { restaurants, setRestaurants } = useContext(RestaurantContext);
   const {setUserInfo}=useContext(UserInfoContext)
   const [ decodedToken ,setDecodedToken] = useState("");

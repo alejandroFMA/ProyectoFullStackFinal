@@ -3,7 +3,10 @@ import ReservationCard from "../ReservationList/ReservationCard";
 import axios from 'axios';
 import { v4 as uuidv4 } from "uuid";
 
+
+
 const ReservationList = ({ reservations, setReservation }) => {
+  
 
   const deleteReservation = (id) => {
     axios.delete(`/api/reservation/${id}`)
