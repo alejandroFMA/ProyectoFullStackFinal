@@ -28,7 +28,6 @@ const getCommentsbyRestaurantID = async (restaurantId) =>{
 
 }
 
-
 const getAllComments = async () => {
     try {
         return await Comment.findAll(); 

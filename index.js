@@ -70,9 +70,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-
-
-
 // error handling
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 app.use('*',error404)

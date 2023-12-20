@@ -50,8 +50,8 @@ const Home = () => {
   useEffect(() => {
     const filteredRestaurants = restaurants.filter((restaurant) => {
       return (
-        (!searchTerm || restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) && //solo aparecer restaurantes incluyen
-        (!foodType || restaurant.type === foodType) && //solo aparecer restaurantes tipo de vovims
+        (!searchTerm || restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())) && //solo aparecer restaurantes incluyen termino
+        (!foodType || restaurant.type === foodType) && //solo aparecer restaurantes tipo de comida
         (vegan === false || restaurant.vegan === vegan) //solo aparecen restaurantes veganos true
       );
     });
