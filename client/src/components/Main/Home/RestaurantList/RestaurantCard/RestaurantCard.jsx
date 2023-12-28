@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 const RestaurantCard = ({ id, name, vegan, type, setRestaurants }) => {
@@ -9,16 +9,16 @@ const RestaurantCard = ({ id, name, vegan, type, setRestaurants }) => {
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const decoded = jwtDecode(token);
-      const tokenAdmin = decoded.admin === true;
-      setIsAdmin(tokenAdmin);
-    } else {
-      setIsAdmin(false);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     const decoded = jwtDecode(token);
+  //     const tokenAdmin = decoded.admin === true;
+  //     setIsAdmin(tokenAdmin);
+  //   } else {
+  //     setIsAdmin(false);
+  //   }
+  // }, []);
 
   const restaurantDetailUrl = `restaurant/${id}`;
 

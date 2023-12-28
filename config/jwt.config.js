@@ -2,11 +2,18 @@ const passportJWT = require("passport-jwt");
 const User = require("../schemas/sql_users");
 require("dotenv").config();
 
-// Passport & JWT config
 const { Strategy: JWTStrategy, ExtractJwt: ExtractJWT } = passportJWT;
 
 const opts = {};
-opts.jwtFromRequest = ExtractJWT.fromAuthHeaderWithScheme('jwt');
+opts.jwtFromRequest = ExtractJWT.fromExtractors([
+  (req) => {
+    let token = null;
+    if (req && req.cookies) {
+      token = req.cookies['jwt'];
+    }
+    return token;
+  }
+]);
 opts.secretOrKey = `${process.env.JWT_SECRET}`;
 const passportJWTStrategy = new JWTStrategy(opts, async (jwtPayload, done) => {
   try {

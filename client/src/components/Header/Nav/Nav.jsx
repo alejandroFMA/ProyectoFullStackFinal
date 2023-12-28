@@ -11,24 +11,49 @@ const Nav = () => {
 
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decoded = jwtDecode(token);
-      const tokenAdmin = decoded.admin === true
-      setIsAuthenticated(true);
-      setIsAdmin(tokenAdmin)
-    } else {
-      setIsAuthenticated(false)
-      setIsAdmin(false)
-    }
+    const verifyUser = async () => {
+      try {
+        const response = await fetch('/api/verifyToken', {
+          method: 'GET',
+          credentials: 'include' 
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          setIsAuthenticated(data.isAuthenticated);
+          setIsAdmin(data.isAdmin);
+        } else {
+          throw new Error('Authentication verification failed');
+        }
+      } catch (error) {
+        console.error('Error verifying authentication:', error);
+        setIsAuthenticated(false);
+        setIsAdmin(false);
+      }
+    };
+  
+    verifyUser();
   }, []);
 
 
-  const handleLogout = () => {
-    localStorage.removeItem('token'); 
-    setIsAuthenticated(false); 
-    alert("Usuario desconectado")
-    navigate('/');
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('/api/logout', {
+        method: 'POST',
+        credentials: 'include' 
+      });
+  
+      if (response.ok) {
+        setIsAuthenticated(false);
+        setIsAdmin(false);
+        alert("Usuario desconectado");
+        navigate('/');
+      } else {
+        throw new Error('Logout failed');
+      }
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
   };
 
   const scrollToTop = () => {

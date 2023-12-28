@@ -22,11 +22,11 @@ const handleInputChange= (event) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
  
-    const commentData ={
-      id_user: userInfo.id,
-      id_restaurant:id_restaurant,
-      text:text
-    }
+    // const commentData ={
+    //   id_user: userInfo.id,
+    //   id_restaurant:id_restaurant,
+    //   text:text
+    // }
     try{
 
       const response = await axios.post('http://localhost:3000/api/comment', commentData)

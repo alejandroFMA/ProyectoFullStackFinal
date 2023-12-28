@@ -37,7 +37,6 @@ const handleSubmit = async (event) => {
 };
 
   return (
-    <form className='signup-form'>
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -115,7 +114,6 @@ const handleSubmit = async (event) => {
         </Box>
       </Container>
     </ThemeProvider>
-    </form>
   );
 }
 

@@ -30,10 +30,10 @@ const defaultTheme = createTheme();
       const response = await axios.post('http://localhost:3000/signin', {
         email: data.get('email'),
         password: data.get('password'),
+      }, {
+        withCredentials: true 
       });
-  
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.token); 
         navigate('/'); 
       } else {
         alert('Email o contraseña incorrectos');

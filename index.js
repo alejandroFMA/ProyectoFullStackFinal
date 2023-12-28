@@ -25,13 +25,24 @@ app.use(cookieParser());
 db.sync().then(() => {
   console.log('Base de datos sincronizada');
 });
-app.use('*', cors());
+
+const corsOptions = {
+  origin: 'http://localhost:5173', 
+    credentials: true, 
+};
+app.use(cors(corsOptions));
 
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false, // Cambiar a false a menos que quieras sesiones para cada visitante
+  cookie: {
+    httpOnly: true, // La cookie solo se puede modificar por el servidor
+    secure: process.env.NODE_ENV === 'production', // En producción, requerir una conexión segura (HTTPS)
+    sameSite: 'lax', // Protección contra CSRF
+    // maxAge: <Tiempo en milisegundos> // Define el tiempo de vida de la cookie
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

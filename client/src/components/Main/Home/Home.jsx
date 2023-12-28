@@ -4,30 +4,18 @@ import axios from 'axios';
 import Form from './Form';
 import RestaurantList from './RestaurantList';
 import { RestaurantContext } from '../../../context/restaurantContext';
-import {UserInfoContext} from "../../../context/userInfoContext";
 import Cliploader from "react-spinners/MoonLoader";
 
 
 
 const Home = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext);
-  const {setUserInfo}=useContext(UserInfoContext)
-  const [ decodedToken ,setDecodedToken] = useState("");
   const [filterRestaurants, setFilterRestaurants] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [foodType, setFoodType] = useState('');
   const [vegan, setVegan] = useState(false);
   const [loading, setLoading] = useState(true)
   
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-        const decoded = jwtDecode(token);
-        setDecodedToken(decoded);
-        setUserInfo(decoded);
-    } 
-}, [setUserInfo]);
 
 
   useEffect(() => {

@@ -35,24 +35,32 @@ const signUpUser = async (req, res) => {
       const isMatch = await bcrypt.compare(req.body.password, user.password);
       if (isMatch) {
         const tokenData = {
-          id: user.id_user,  
+          id: user.id_user,
           email: user.email,
           username: user.username,
           admin: user.admin
         };
   
         const token = jwt.sign(tokenData, process.env.JWT_SECRET, {
-          expiresIn: 3600000,
+          expiresIn: 3600000, 
         });
-  
-        res.json({ success: true, token });
+
+
+        res.cookie('access-token', token, {
+          httpOnly: true,
+          secure: false, 
+          sameSite: 'strict', 
+          expires: new Date(Date.now() + 3600000) 
+        });
+
+     
+        res.status(200).json({ success: true, message: 'Authentication successful' });
       } else {
         res.status(401).json({ success: false, message: `Invalid password.` });
       }
     } catch (error) {
       res.status(400).json({ message: `ERROR: ${error.message}` });
     }
-  
   };
 
   const googleAuth = async (req, res) => {
