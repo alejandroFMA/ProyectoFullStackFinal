@@ -8,7 +8,7 @@ const ListReserves = ({fetch}) => {
   const {allReservations, setAllReservations} = useContext(ReservationsUsersContext)
 
   const deleteReservation = async (id) => {
-   const response = axios.delete(`http://localhost:3000/api/reservation/${id}`)
+   const response = axios.delete(`/api/reservation/${id}`)
    try{
      console.log(response.data)
      setAllReservations(reservaActual => reservaActual.filter(reserve => reserve.id_reservations !== id));

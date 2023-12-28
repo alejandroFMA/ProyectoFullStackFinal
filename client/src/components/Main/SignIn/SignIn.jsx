@@ -27,7 +27,7 @@ const defaultTheme = createTheme();
     const data = new FormData(event.currentTarget);
   
     try {
-      const response = await axios.post('http://localhost:3000/signin', {
+      const response = await axios.post('/signin', {
         email: data.get('email'),
         password: data.get('password'),
       }, {

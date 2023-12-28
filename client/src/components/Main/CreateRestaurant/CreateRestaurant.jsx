@@ -21,7 +21,7 @@ const CreateRestaurant = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await axios.post('http://localhost:3000/api/restaurant', newRestaurant);
+        const response = await axios.post('/api/restaurant', newRestaurant);
         console.log(response.data);
         setNewRestaurant({
           name:"",
