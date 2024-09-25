@@ -1,0 +1,184 @@
+header{
+ background-color: rgb(32, 30, 30);
+ box-shadow: 0 0 25px 0 black;
+ 
+}
+
+
+
+
+nav{
+padding: 10px;
+
+}
+
+
+.nav-bar{
+
+    display: flex;
+    list-style: none;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+}
+
+a.nav-link-active{ 
+    margin: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.nav-link{
+
+    margin: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-align: center;
+    align-items: end;
+
+}
+button{
+    margin: 10px;
+}
+
+
+.nav-link-active>img{
+    height: 65px;
+    margin-left: 40px;
+    margin-right: 20px;
+    
+
+}
+
+.logout {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.logout:hover,
+.logout:active {
+  background-color: white;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.logout:active {
+  opacity: .5;
+}
+
+.signin {
+    background: #06e964;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  
+  .signin:hover,
+  .signin:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #51fd02;
+  }
+  
+  .signin:active {
+    opacity: .5;
+  }
+
+
+  .signup {
+    background: #2b84cd;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  
+  .signup:hover,
+  .signup:active {
+    background-color: white;
+    background-position: 0 0;
+    color: #2b84cd;
+  }
+  
+  .signup:active {
+    opacity: .5;
+  }
+
+
+
+
+
+
+@media (max-width:768px){
+
+    .header{
+   
+        justify-content: center;
+        
+    }
+    .nav-bar{
+        flex-direction: column;
+        background-color: rgb(32, 30, 30);
+        width: 100% ;
+      
+
+    }
+
+}

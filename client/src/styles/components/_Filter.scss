@@ -1,0 +1,25 @@
+.filtro-reservas{
+    width: 300px;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: inset;
+    border: 0px solid;
+    border: solid 1.5px #565253;
+    -webkit-transition: 1s; 
+    transition: 1s;
+    
+    }
+    
+    .filtro-reservas:hover{
+        box-shadow: 0 0 5pt 0.5pt #565252;
+    
+    }
+    
+    
+    .filtro-reservas:focus{
+    box-shadow: 0 0 5pt 2pt #565252;
+    outline-width: 0px;
+    }
+    

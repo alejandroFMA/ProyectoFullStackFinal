@@ -1,0 +1,380 @@
+{
+    "program": [
+      {
+        "date": "DO 1",
+        "films": [
+          {
+            "title": "Demasiado pronto, demasiado tarde",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Perdición",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MA 3",
+        "films": [
+          {
+            "title": "Still Walking",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Retorno al pasado",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MI 4",
+        "films": [
+          {
+            "title": "Ahora sí, antes no",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "La metamorfosis de los pájaros",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "JU 5",
+        "films": [
+          {
+            "title": "Las margaritas",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "18:30 H"
+          },
+          {
+            "title": "La ceniza es el blanco más puro",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "VI 6",
+        "films": [
+          {
+            "title": "Tío Boonmee recuerda sus vidas pasadas",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Marketa Lazarová",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "SA 7",
+        "films": [
+          {
+            "title": "¡Sicilia!",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "El incinerador de cadáveres",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "DO 8",
+        "films": [
+          {
+            "title": "La mujer de los perros",
+            "category": "MUJERES EN FOCO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Relaciones de clase",
+            "category": "STRAUB-HUILLET",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MA 10",
+        "films": [
+          {
+            "title": "Antígona",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Retorno al pasado",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MI 11",
+        "films": [
+          {
+            "title": "Todo sobre Lily",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Alfersun",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "JU 12",
+        "films": [
+          {
+            "title": "El desvío",
+            "category": "CINE NOIR",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Crónica de Anna Magdalena Bach",
+            "category": "STRAUB-HUILLET",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "VI 13",
+        "films": [
+          {
+            "title": "El suelo eterno",
+            "category": "CINE NOIR",
+            "time": "18:30 H"
+          },
+          {
+            "title": "First Cow",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "SA 14",
+        "films": [
+          {
+            "title": "Relaciones de clase",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Val del Omar",
+            "category": "SESIÓN ESPECIAL",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "DO 15",
+        "films": [
+          {
+            "title": "Lazzaro Feliz",
+            "category": "MUJERES EN FOCO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Trenes rigurosamente vigilados",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MA 17",
+        "films": [
+          {
+            "title": "Goodbye, Dragon Inn",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Demasiado temprano, demasiado tarde",
+            "category": "STRAUB-HUILLET",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MI 18",
+        "films": [
+          {
+            "title": "Trenes rigurosamente vigilados",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "18:30 H"
+          },
+          {
+            "title": "El sueño eterno",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "JU 19",
+        "films": [
+          {
+            "title": "El sol en la red",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Todo sobre Lily",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "VI 20",
+        "films": [
+          {
+            "title": "Antígona",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "La metamorfosis de los pájaros",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "SA 21",
+        "films": [
+          {
+            "title": "Crónica de Anna Magdalena Bach",
+            "category": "STRAUB-HUILLET",
+            "time": "18:30 H"
+          },
+          {
+            "title": "La mujer de los perros",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "DO 22",
+        "films": [
+          {
+            "title": "Still Walking",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Alfersun",
+            "category": "MUJERES EN FOCO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MA 24",
+        "films": [
+          {
+            "title": "El incinerador de cadáveres",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "18:30 H"
+          },
+          {
+            "title": "El desvío",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "MI 25",
+        "films": [
+          {
+            "title": "La ceniza es el blanco más puro",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Las margaritas",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "JU 26",
+        "films": [
+          {
+            "title": "Marketa Lazarová",
+            "category": "NUEVA OLA CHECOSLOVACA",
+            "time": "18:30 H"
+          },
+          {
+            "title": "¡Sicilia!",
+            "category": "STRAUB-HUILLET",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "VI 27",
+        "films": [
+          {
+            "title": "Goodbye, Dragon Inn",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "La mujer del cuadro",
+            "category": "CINE NOIR",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "SA 28",
+        "films": [
+          {
+            "title": "Lazzaro Feliz",
+            "category": "MUJERES EN FOCO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Tío Boonmee recuerda sus vidas pasadas",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "21:00 H"
+          }
+        ]
+      },
+      {
+        "date": "DO 29",
+        "films": [
+          {
+            "title": "First Cow",
+            "category": "MUJERES EN FOCO",
+            "time": "18:30 H"
+          },
+          {
+            "title": "Ahora sí, antes no",
+            "category": "CINE ASIÁTICO CONTEMPORÁNEO",
+            "time": "21:00 H"
+          }
+        ]
+      }
+    ]
+  }
+  

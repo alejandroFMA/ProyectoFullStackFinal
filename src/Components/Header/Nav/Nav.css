@@ -1,0 +1,7 @@
+nav{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    padding: 0;       
+}

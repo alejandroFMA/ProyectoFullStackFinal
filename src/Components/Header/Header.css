@@ -1,0 +1,10 @@
+header{
+background-color: black;
+display: flex;
+color: white;
+max-height: 12vh;
+padding-top: 2rem;
+margin-bottom:20px;
+align-items: center;
+justify-content: center;
+}
