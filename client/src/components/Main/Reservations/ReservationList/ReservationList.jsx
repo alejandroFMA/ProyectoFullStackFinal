@@ -1,7 +1,7 @@
 import React from "react";
 import ReservationCard from "../ReservationList/ReservationCard";
 import axios from 'axios';
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 
 
@@ -23,7 +23,7 @@ const ReservationList = ({ reservations, setReservation }) => {
     <section className="reservationList">
       {reservations.map(reserve => (
         <ReservationCard 
-         key={uuidv4()}
+         key={reserve.id_reservations}
           id={reserve.id_reservations}
           name={reserve.Restaurant.name}
           address={reserve.Restaurant.address} 
