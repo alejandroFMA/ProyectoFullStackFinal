@@ -1,0 +1,75 @@
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+article.container2{
+margin: 14px;
+padding: 5px;
+}
+
+article.container2:hover{
+  background-color: #efd2d27a;
+  border-radius: 10px;
+ 
+}
+textarea {
+  background-image: linear-gradient(#F1F1F1 50%, #F9F9F9 50%);
+  background-size: 100% 4rem;
+  border: 1px solid #CCC;
+  width: 100%;
+  line-height: 2rem;
+  margin: 0 auto;
+  padding: 15px 8px;
+}
+
+h4{
+  padding-left: 5px;
+  margin: 10px 0px 10px;
+  
+  
+  }
+
+.comment-txt-area{
+
+  display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.comments-display{
+  border-top: 0.5px solid rgb(0, 0, 0);
+  border-left: 0.5px solid rgb(0, 0, 0);
+  border-right: 0.5px solid rgb(0, 0, 0);
+  -webkit-box-shadow: inset 0px 7px 13px -3px rgba(0,0,0,0.26);
+  -moz-box-shadow: inset 0px 7px 13px -3px rgba(0,0,0,0.26);
+  box-shadow: inset 0px 7px 13px -3px rgba(0,0,0,0.26);
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 24px 30px 10px 10px;
+  -moz-border-radius: 24px 30px 10px 10px;
+  -webkit-border-radius: 24px 30px 10px 10px;
+  border: 0px solid #000000;
+  overflow: hidden;
+}
+
+.container2{
+  height: 100%;
+  height: 99%;
+  overflow: auto;
+}
+
+
+
+.btn-comment {
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
